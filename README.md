@@ -50,6 +50,8 @@ This repository also contains scans of the original manuals and box art for Chip
 * [Commodore 64 ChipWits Manual](docs/ChipWits_C64_Manual.pdf)
 * [Apple II ChipWits Manual](docs/ChipWits_Apple_II_Manual.pdf)
 
+[![ChipWits Mac Box Art](docs/chipwits-manuals.png)](docs/ChipWits_Mac_Manual.pdf)
+
 # ChipWits Reboot
 
 ChipWits is currently being rebooted by ChipWits, Inc., a game company led by Doug Sharp and
