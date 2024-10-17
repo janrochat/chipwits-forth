@@ -3,6 +3,10 @@
 This repository contains Macintosh raw disk images from the archives
 of the original author of ChipWits, Doug Sharp.
 
+![Mac ChipWits Disks](docs/mac-chipwits-disks.jpg)
+
+# Screenshot
+
 ![Mac ChipWits Screenshot](docs/mac-chipwits.png)
 
 # MacForth

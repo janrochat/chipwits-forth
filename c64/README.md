@@ -3,6 +3,12 @@
 This repository contains Commodore 64 raw disk images from the archives
 of the original author of ChipWits, Doug Sharp.
 
+![Commodore 64 ChipWits Disks](docs/c64-chipwits-disks.jpg)
+
+# Screenshot
+
+![Commodore 64 ChipWits Screenshot](docs/c64-chipwits.png)
+
 # Super Forth 64
 
 By analyzing the disks, it's possible to infer that the game was built using a variant of the Forth programming
