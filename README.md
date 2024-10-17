@@ -28,6 +28,15 @@ and flexibility, and is still used in some applications today.
 
 You can find out more about FORTH here: https://en.wikipedia.org/wiki/Forth_(programming_language)
 
+# Editions
+
+There are two editions of ChipWits in this repository:
+
+- [Mac Edition](mac/README.md)
+- [Commodore 64 Edition](c64/README.md)
+
+The source code for the Apple II edition has not yet been recovered.
+
 # ChipWits Reboot
 
 ChipWits is currently being rebooted by ChipWits, Inc., a game company led by Doug Sharp and
@@ -41,14 +50,12 @@ Website: https://chipwits.com/
 
 This repository does not have any assets related to the remake.
 
-# Editions
+# ChipWits in Emulation
 
-There are two editions of ChipWits in this repository:
+The Mac, Commodore 64 and Apple II versions of the game can all be played in
+emulation on the ChipWits website: https://chipwits.com/retro
 
-- [Mac Edition](mac/README.md)
-- [Commodore 64 Edition](c64/README.md)
-
-The source code for the Apple II edition has not yet been recovered.
+[![ChipWits Retro](docs/chipwits-retro-emulation.png)](https://chipwits.com/retro)
 
 # Future Work
 
