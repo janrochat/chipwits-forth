@@ -4,6 +4,11 @@ This repository contains raw disk images from the archives of the original autho
 ChipWits, Doug Sharp. The disks contain the original FORTH source code for ChipWits, as well
 as other related files.
 
+For the 40th anniversary of ChipWits (which was released the same year as the original
+Macintosh), ChipWits, Inc. released the source code for the game to the public. The team
+hopes that this will inspire a new generation of programmers to learn about FORTH and
+how many games were programmed in the 1980s.
+
 # What is ChipWits?
 
 From the manual:
