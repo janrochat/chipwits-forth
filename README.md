@@ -12,9 +12,9 @@ From the manual:
 > kinds of objects. As you learn how to make the robots "think" for themselves, you will sharpen
 > your problem-solving skills and learn some of the basic principles of computer programming.
 
-![Mac ChipWits Screenshot](mac/docs/mac-chipwits.png)
+[![Mac ChipWits Screenshot](mac/docs/mac-chipwits.png)](https://chipwits.com/)
 
-![C64 ChipWits Screenshot](c64/docs/c64-chipwits.png)
+[![C64 ChipWits Screenshot](c64/docs/c64-chipwits.png)](https://chipwits.com/)
 
 ChipWits was originally released in 1984 for the Macintosh, and later ported to the Commodore 64
 and Apple II in 1985. It was created by Doug Sharp and Mike Johnston, and has inspired many
@@ -36,6 +36,8 @@ Mark Roth. You can find out more about the reboot and play the free demo here:
 Wishlist on Steam: https://store.steampowered.com/app/2330720/ChipWits/?utm_source=github 
 
 Website: https://chipwits.com/
+
+[![ChipWits Reboot Screenshot](docs/chipwits-reboot.jpg)](https://store.steampowered.com/app/2330720/ChipWits/?utm_source=github)
 
 This repository does not have any assets related to the remake.
 
