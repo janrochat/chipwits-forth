@@ -31,6 +31,11 @@ but an attempt was made to recover as much of the disk as possible. The
 other disks were 100% recovered according to XoomFloppy, but may have
 occasional track corruption.
 
+One of the challenges is, since there was no system time on the C64, there
+are no timestamps on the disks. So it's hard to know which disk is the
+latest version of the source code. We preserved the names on the labels of
+the disks, which does help, somewhat.
+
 | Disk                                                                                            | Notes                                                          |
 |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64 |                                                                |
@@ -104,6 +109,17 @@ In progress:
 8. Attach disk image `cw-gameback-screens-11-3-84.d64` to Drive #8
 9. Attach disk image `cw-characterscreens-11-3-84-ttl-saves-c64.d64` to Drive #9
 10. `DR0 1 LOAD`
+
+# Readable FORTH Source
+The `forth/` directory contains semi-readable source files, re-encoded so that they can be
+read by a modern computer in UTF-8 encoding. They are non-normative and will not compile,
+but they are more convenient to read than the raw bytes.
+
+Some of the files seem to be misaligned - it seems some of the screens have 40-character
+wide lines and some have 64-character wide lines.
+
+You can use the `python/extract-forth.py` script to extract a `.d64` file into
+a `.forth` file.
 
 # Future Work
 

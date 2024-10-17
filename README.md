@@ -1,8 +1,8 @@
-# ChipWits-Forth
+# ChipWits-FORTH
 
 This repository contains raw disk images from the archives of the original author of
-ChipWits, Doug Sharp. The disks contain the source code for ChipWits, as well as other
-related files.
+ChipWits, Doug Sharp. The disks contain the original FORTH source code for ChipWits, as well
+as other related files.
 
 # What is ChipWits?
 
