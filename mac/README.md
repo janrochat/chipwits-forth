@@ -51,6 +51,6 @@ were still generally readable.
 The disks can be opened in a Mac emulator such as [Mini vMac](https://www.gryphel.com/c/minivmac/).
 You need to boot with a system disk first. Some of these disks have the system installed as well, others don't.
 
-# Recovering Source
-The `recovering/` directory contains semi-recovered source files, re-encoded so that they can be
-read by a modern computer. They are non-normative and will not compile.
+# Readable FORTH Source
+The `forth/` directory contains semi-recovered source code, re-encoded so that it can be
+read by a modern computer. The code is non-normative and will not compile.
