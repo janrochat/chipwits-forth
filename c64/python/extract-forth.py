@@ -24,17 +24,17 @@ def skip_sectors(data: bytes) -> bytes:
 
 
 
-def extract_screen(data: bytes) -> str:
+def extract_screen(data: bytes, line_width: int) -> str:
     """
     A screen is 1024 bytes. The screen has rows, each with 64 characters.
     Each character is stored as a 1 byte PETSCII value.
     We skip over 0 values
     """
     result = ""
-    for i in range(0, 1024, 40):
+    for i in range(0, 1024, line_width):
         row = ""
         # Skip over 0 values
-        for b in data[i:i+40]:
+        for b in data[i:i+line_width]:
             if b == 0:
                 continue
             # Decode PETSCII byte to char
@@ -50,7 +50,7 @@ def extract_screen(data: bytes) -> str:
     return result
 
 
-def extract(input: str, output: str):
+def extract(input: str, output: str, line_width: int):
     # Read the d64 file into memory (174848 bytes)
     with open(input, "rb") as f:
         data = f.read()
@@ -62,7 +62,7 @@ def extract(input: str, output: str):
     out = ""
     for i in range(0, len(data), 1024):
         screen_data = data[i:i+1024]
-        out += extract_screen(screen_data)
+        out += extract_screen(screen_data, line_width)
 
     with open(output, "w", encoding="utf-8") as f:
         f.write(out)
@@ -72,6 +72,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True, help="d64 file to extract source code from")
     parser.add_argument("--output", required=True, help="ASCII file to write source code to")
+    parser.add_argument("--line_width", required=False, type=int, default=40, help="Line width in source code")
     args = parser.parse_args()
 
-    extract(args.input, args.output)
+    extract(args.input, args.output, args.line_width)

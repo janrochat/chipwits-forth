@@ -127,6 +127,29 @@ wide lines and some have 64-character wide lines.
 You can use the `python/extract-forth.py` script to extract a `.d64` file into
 a `.forth` file.
 
+Some commands used to extract `.forth` files
+```
+python .\extract-forth.py --input ..\disks\bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64 --output ..\forth\bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64.forth
+python .\extract-forth.py --input ..\disks\bad-forth-source-screens-cw-master-src-1-of-3.d64 --output ..\forth\bad-forth-source-screens-cw-master-src-1-of-3.d64.forth --line_width 64
+python .\extract-forth.py --input ..\disks\bad-forth-source-screens-cw-master-src-1-of-3.take2.d64 --output ..\forth\bad-forth-source-screens-cw-master-src-1-of-3.take2.d64.forth --line_width 64
+python .\extract-forth.py --input ..\disks\c-64-chipwits-joystick-and-menu-stuff-backups.d64 --output ..\forth\c-64-chipwits-joystick-and-menu-stuff-backups.d64
+python .\extract-forth.py --input ..\disks\char-bak-cw-c64-11-2-84.d64 --output ..\forth\char-bak-cw-c64-11-2-84.d64.forth
+python .\extract-forth.py --input ..\disks\cw-c64-sprite-bak.d64 --output ..\forth\cw-c64-sprite-bak.d64.forth
+python .\extract-forth.py --input ..\disks\cw-characterscreens-11-3-84-ttl-saves-c64.d64 --output ..\forth\cw-characterscreens-11-3-84-ttl-saves-c64.d64.forth
+python .\extract-forth.py --input ..\disks\cw-forth-source-screens-9-18-84-forth-demo.d64 --output ..\forth\cw-forth-source-screens-9-18-84-forth-demo.d64.forth
+python .\extract-forth.py --input ..\disks\cw-game-screens-11-3-84-cw-master-src-3-of-3.d64 --output ..\forth\cw-game-screens-11-3-84-cw-master-src-3-of-3.d64.forth
+python .\extract-forth.py --input ..\disks\cw-gameback-screens-11-3-84.d64 --output ..\forth\cw-gameback-screens-11-3-84.d64.forth
+python .\extract-forth.py --input ..\disks\cw-gameback-screens.d64 --output ..\forth\cw-gameback-screens.d64.forth
+python .\extract-forth.py --input ..\disks\cw-graphics-c64-character-backup.d64 --output ..\forth\cw-graphics-c64-character-backup.d64.forth
+python .\extract-forth.py --input ..\disks\cw-sprite-bak.d64.d64 --output ..\forth\cw-sprite-bak.d64.forth
+python .\extract-forth.py --input ..\disks\cw-sprite-screens-11-20-84.d64 --output ..\forth\cw-sprite-screens-11-20-84.d64.forth
+python .\extract-forth.py --input ..\disks\cwforthbak-forth-source-bac.d64 --output ..\forth\cwforthbak-forth-source-bac.d64.forth --line_width 64
+python .\extract-forth.py --input ..\disks\joystick-and-menu-bak.d64 --output ..\forth\joystick-and-menu-bak.d64.forth
+
+python .\extract-forth.py --input ..\disks\rbfort-bak-src-2-5-86.d64 --output ..\forth\rbfort-bak-src-2-5-86.d64.forth --line_width 64
+python .\extract-forth.py --input ..\disks\rbgame-back-src-2-5-86.d64 --output ..\forth\rbgame-back-src-2-5-86.d64.forth
+```
+
 # Future Work
 
 Further work needs to be done:
