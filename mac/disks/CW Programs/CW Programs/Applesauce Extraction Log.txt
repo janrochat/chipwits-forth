@@ -1,0 +1,57 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 17:07
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh MFS
+
+== STATUS ======================================================================
+
+3 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+CW Programs
+
+CRTR TYPE NAME                          ALLOCS  LENGTH  MODIFIED     CREATED
+
+ERIK FNDR DeskTop                            2    1305  21 FEB 1986  29 NOV 1986
+.... DATA I/CW                              19   19200  28 OCT 1985  24 SEP 1984
+.... DATA CWa                               19   19200  25 OCT 1985  24 SEP 1984
+
+
+== FILE DETAILS ================================================================
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: 240f827ad09be7a4c66cf9cad1f1e42a
+
+
+   Allocs: 2        Block Qty: 4        File Size: 1305     
+Data Size: 0        Data Blks: 0        Rsrc Size: 1305     Rsrc Blks: 4        
+    Flags: $80         Finder: $4000       File #: 1         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+I/CW
+Creator: '....'  Type: 'DATA'              MD5: f7cfd3b48a25dc66dbbb8c143ec724b3
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19200    
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 3         Folder #: 18420    
+
+--------------------------------------------------------------------------------
+
+CWa
+Creator: '....'  Type: 'DATA'              MD5: f15fbf78f3f826ccb3db0216c116d3ff
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19200    
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 6         Folder #: 12358    
+
+--------------------------------------------------------------------------------
+

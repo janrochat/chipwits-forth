@@ -1,0 +1,101 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 17:16
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh MFS
+
+== STATUS ======================================================================
+
+7 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+CW Work
+
+CRTR TYPE NAME                          ALLOCS  LENGTH  MODIFIED     CREATED
+
+ERIK FNDR DeskTop                            2    1382  01 AUG 1985  01 AUG 1985
+M4TH BLKS Forth blocks                       7    7168  12 OCT 1984  07 JUN 1984
+M4TH APPL cw.ed                             42   42622  20 OCT 1984  17 APR 1984
+M4TH APPL CW.2                              54   55271  28 OCT 1984  17 APR 1984
+M4TH APPL 3.16.31                           55   55301  08 NOV 1984  13 OCT 1984
+.... DATA CW                                19   19200  29 NOV 1984  24 SEP 1984
+M4TH BLKS ChipWits                         196  200704  01 AUG 1985  22 MAY 1984
+
+
+== FILE DETAILS ================================================================
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: 395171598813e90042fb1b704e0a5a73
+
+
+   Allocs: 2        Block Qty: 4        File Size: 1382     
+Data Size: 0        Data Blks: 0        Rsrc Size: 1382     Rsrc Blks: 4        
+    Flags: $80         Finder: $4000       File #: 1         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Forth blocks
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 1f58f0b11d3a8a40adeb762cf93419d8
+
+
+   Allocs: 7        Block Qty: 14       File Size: 7168     
+Data Size: 7168     Data Blks: 14       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 2         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+cw.ed
+Creator: 'M4TH'  Type: 'APPL'              MD5: 2c5d44e9c0f032806eaaa31b8476a225
+
+
+   Allocs: 42       Block Qty: 84       File Size: 42622    
+Data Size: 0        Data Blks: 0        Rsrc Size: 42622    Rsrc Blks: 84       
+    Flags: $80         Finder: $2100       File #: 3         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+CW.2
+Creator: 'M4TH'  Type: 'APPL'              MD5: df0e035012280a2c77a5c37705c9eb6b
+
+
+   Allocs: 54       Block Qty: 108      File Size: 55271    
+Data Size: 0        Data Blks: 0        Rsrc Size: 55271    Rsrc Blks: 108      
+    Flags: $80         Finder: $2100       File #: 4         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+3.16.31
+Creator: 'M4TH'  Type: 'APPL'              MD5: ebb83017636c321c23798f10af9f6411
+
+
+   Allocs: 55       Block Qty: 110      File Size: 55301    
+Data Size: 0        Data Blks: 0        Rsrc Size: 55301    Rsrc Blks: 110      
+    Flags: $80         Finder: $2100       File #: 5         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+CW
+Creator: '....'  Type: 'DATA'              MD5: da09d9db46510afba9544b67a506f7cc
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19200    
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 6         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 27d29aab2a1eef90c694b3e20721f1b3
+
+
+   Allocs: 196      Block Qty: 392      File Size: 200704   
+Data Size: 200704   Data Blks: 392      Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 7         Folder #: 0        
+
+--------------------------------------------------------------------------------
+

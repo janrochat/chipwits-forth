@@ -1,0 +1,220 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 17:26
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh HFS
+
+== STATUS ======================================================================
+
+21 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+CW 1.2
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+  <dir>   CW Folder                                05 JUN 1990  01 JAN 1904
+ERIK FNDR DeskTop                            1548  05 DEC 1986  05 DEC 1986
+
+
+CW 1.2:CW Folder
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+M4TH APPL 3.16.31                           71855  10 SEP 1985  13 OCT 1984
+M4TH APPL Backup K3.4D- w CW res            69011  17 JUN 1986  13 OCT 1984
+.... DATA Boomtown                            800  04 NOV 1984  21 OCT 1984
+.... DATA ChipWit Caves                      1120  04 NOV 1984  13 AUG 1984
+M4TH BLKS ChipWits                         200704  21 JUL 1986  22 MAY 1984
+M4TH APPL Copy of K3.4D-                   103799  21 JUL 1986  13 OCT 1984
+.... DATA CW                                19200  17 JUL 1986  24 SEP 1984
+M4TH APPL cw.ed                             42622  20 OCT 1984  17 APR 1984
+.... DATA Doom Rooms                         1120  21 OCT 1984  10 OCT 1984
+M4TH BLKS Editor Blocks                     36864  10 DEC 1985  01 JAN 1904
+M4TH BLKS EXTENSION                         37888  06 APR 1985  24 AUG 1984
+M4TH BLKS FORTH Blocks                      15360  01 JAN 1904  27 JAN 1984
+.... DATA Greedville                          400  26 SEP 1984  13 AUG 1984
+.... DATA IBOL                               3200  29 OCT 1984  30 SEP 1984
+M4TH APPL K3.4D-                            69011  17 JUN 1986  13 OCT 1984
+.... DATA Memory Lanes                        880  15 OCT 1984  15 OCT 1984
+.... DATA Mystery Matrix                     8080  05 NOV 1984  10 OCT 1984
+.... DATA Octopus Garden                     3600  21 OCT 1984  21 OCT 1984
+.... DATA Peace Paths                        4400  04 NOV 1984  10 OCT 1984
+.... DATA Source Graphics                   10672  01 NOV 1984  18 AUG 1984
+
+
+== FILE DETAILS ================================================================
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: f1fdec1417da5ec0c9604a1d0215f526
+
+     CNID: 16       Block Qty: 13       File Size: 1548         Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 1548     Rsrc Blks: 13       
+
+--------------------------------------------------------------------------------
+
+3.16.31
+Creator: 'M4TH'  Type: 'APPL'              MD5: d5a347d69168186fa788cfc97c6da52b
+
+     CNID: 18       Block Qty: 141      File Size: 71855        Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 71855    Rsrc Blks: 141      
+
+--------------------------------------------------------------------------------
+
+Backup K3.4D- w CW res
+Creator: 'M4TH'  Type: 'APPL'              MD5: 4e742bb3f40fa55c34a14841b3de1f15
+
+     CNID: 19       Block Qty: 135      File Size: 69011        Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 69011    Rsrc Blks: 135      
+
+--------------------------------------------------------------------------------
+
+Boomtown
+Creator: '....'  Type: 'DATA'              MD5: 741be00bfaaa27dbddc0c18132f5cc22
+
+     CNID: 20       Block Qty: 2        File Size: 800          Flags: $00      
+Data Size: 800      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWit Caves
+Creator: '....'  Type: 'DATA'              MD5: e63054f83eccd87aa6aa30f6549413a4
+
+     CNID: 21       Block Qty: 3        File Size: 1120         Flags: $00      
+Data Size: 1120     Data Blks: 3        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 5e6775ceda13e70ed4e241ee70b25156
+
+     CNID: 22       Block Qty: 392      File Size: 200704       Flags: $00      
+Data Size: 200704   Data Blks: 392      Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Copy of K3.4D-
+Creator: 'M4TH'  Type: 'APPL'              MD5: 156eec6882a6aeadf5bd96f3a9f03111
+
+     CNID: 23       Block Qty: 203      File Size: 103799       Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 103799   Rsrc Blks: 203      
+
+--------------------------------------------------------------------------------
+
+CW
+Creator: '....'  Type: 'DATA'              MD5: 4839195e91818083319848948a4efea2
+
+     CNID: 24       Block Qty: 38       File Size: 19200        Flags: $00      
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+cw.ed
+Creator: 'M4TH'  Type: 'APPL'              MD5: cd4cb9984ea6c039d595d0f6df1735ec
+
+     CNID: 25       Block Qty: 84       File Size: 42622        Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 42622    Rsrc Blks: 84       
+
+--------------------------------------------------------------------------------
+
+Doom Rooms
+Creator: '....'  Type: 'DATA'              MD5: 74eb84c152af4f6b6feb3abd67177213
+
+     CNID: 26       Block Qty: 3        File Size: 1120         Flags: $00      
+Data Size: 1120     Data Blks: 3        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Editor Blocks
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 0bbe29995d5fcaec818103e290ae587d
+
+     CNID: 27       Block Qty: 72       File Size: 36864        Flags: $00      
+Data Size: 36864    Data Blks: 72       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+EXTENSION
+Creator: 'M4TH'  Type: 'BLKS'              MD5: ff2031ec46bd52c32bd81741c1dfabb1
+
+     CNID: 28       Block Qty: 74       File Size: 37888        Flags: $00      
+Data Size: 37888    Data Blks: 74       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+FORTH Blocks
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 0efb8fe900e8a2b6c1728728b5b5e644
+
+     CNID: 29       Block Qty: 30       File Size: 15360        Flags: $00      
+Data Size: 15360    Data Blks: 30       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Greedville
+Creator: '....'  Type: 'DATA'              MD5: ab9fbca132690118df1ae5709eecba65
+
+     CNID: 30       Block Qty: 1        File Size: 400          Flags: $00      
+Data Size: 400      Data Blks: 1        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+IBOL
+Creator: '....'  Type: 'DATA'              MD5: da09e14fece64b33bf4ac0f1810b95f2
+
+     CNID: 31       Block Qty: 7        File Size: 3200         Flags: $00      
+Data Size: 3200     Data Blks: 7        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+K3.4D-
+Creator: 'M4TH'  Type: 'APPL'              MD5: 04f24af0749eeec907bd3acafdb2fcc6
+
+     CNID: 32       Block Qty: 135      File Size: 69011        Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 69011    Rsrc Blks: 135      
+
+--------------------------------------------------------------------------------
+
+Memory Lanes
+Creator: '....'  Type: 'DATA'              MD5: d4b141225dec9935a477ebc4421c8280
+
+     CNID: 33       Block Qty: 2        File Size: 880          Flags: $00      
+Data Size: 880      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Mystery Matrix
+Creator: '....'  Type: 'DATA'              MD5: 0c953aaf24d9c393e06626e93aeacb82
+
+     CNID: 34       Block Qty: 16       File Size: 8080         Flags: $00      
+Data Size: 8080     Data Blks: 16       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Octopus Garden
+Creator: '....'  Type: 'DATA'              MD5: b7366e12e0b67273d76c632b42e72af9
+
+     CNID: 35       Block Qty: 8        File Size: 3600         Flags: $00      
+Data Size: 3600     Data Blks: 8        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Peace Paths
+Creator: '....'  Type: 'DATA'              MD5: 1efdd1fdabaee94fbd3d76bef5210993
+
+     CNID: 36       Block Qty: 9        File Size: 4400         Flags: $00      
+Data Size: 4400     Data Blks: 9        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Source Graphics
+Creator: '....'  Type: 'DATA'              MD5: 2e20fe06ca52139270e294322825df10
+
+     CNID: 37       Block Qty: 21       File Size: 10672        Flags: $00      
+Data Size: 10672    Data Blks: 21       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+

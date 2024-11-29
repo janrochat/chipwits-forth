@@ -17,34 +17,31 @@ about MacForth at the [Macintosh Repository](https://www.macintoshrepository.org
 
 # Disks
 
-The following disks have been restored. The filenames match the
+The following disks have been restored. The directory names match the
 labels on the disks.
 
-The 800k disks were imaged using a PowerBook G3 WallStreet. The number of bad sectors is unknown,
-but the OS did not report any issues with any of the disks.
+These disks were imaged by John Morris, using Applesauce. The images are in the `.dc42` format.
 
-The 400k disks were imaged with a [GreaseWeazel](https://decromancer.ca/greaseweazle/) and
-[Fluxengine](https://cowlark.com/fluxengine/index.html). These disks had more bad sectors but
-were still generally readable.
+The one exception is `CW Source From Fan` which was imaged on a PowerBook G3 Wallstreet. As it was
+already returned to the fan, there was no way for John to image it.
 
-| Disk                                            | Notes                                                                                                                                             | Size | Bad Sectors |
-|-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------|-------------|
-| CW-source-from-fan.dsk                          | Disk provided by a fan of the game, to whom Doug gave a copy of the source code.                                                                  | 800k | ?           |
-| CW 1.2 - CW Plus Work Final Src.dsk             | Final source code for ChipWits                                                                                                                    | 800k | ?           |
-| Cw-plus-800k.dsk                                | Disk labeled CW+                                                                                                                                  | 800k | ?           |
-| chipwits-in-greedville.dsk                      | Full label: 2 ChipWits in Geedville 1 in Octopus Garden First CW in Greedville goes into all rooms second tests for can and disk before going in. | 400k | 20          |
-| CW 1.2 - CW Plus Work Final Src.dsk             |                                                                                                                                                   | 400k | 0           |
-| chipwits-1.1-drexel-demo.dsk                    |                                                                                                                                                   | 400k | 22          |
-| chipwits-adventure-creation-disk-sounds-too.dsk |                                                                                                                                                   | 400k | 37          |
-| chipwits-demo-release.dsk                       |                                                                                                                                                   | 400k | 4           |
-| chipwits-macpaint-files.dsk                     |                                                                                                                                                   | 400k | 9           |
-| cw-demo.dsk                                     |                                                                                                                                                   | 400k | 82          |
-| cw-plus.dsk                                     |                                                                                                                                                   | 400k | 1           |
-| cw-plus-copy-1.dsk                              |                                                                                                                                                   | 400k | 2           |
-| cw-work-1-bak.dsk                               |                                                                                                                                                   | 400k | 0           |
-| cw-work-i.dsk                                   |                                                                                                                                                   | 400k | 17          |
-| cw-work-ii.dsk                                  |                                                                                                                                                   | 400k | 30          |
-| cw-work-ii-5-min-timeout-version-8-1-85.dsk     |                                                                                                                                                   | 400k | 99          |
+| Disk                     | Notes                                                                                                                                              |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| CW Source From Fan       | Disk provided by a fan of the game, to whom Doug gave a copy of the source code.                                                                   |
+| CW+ Work Final Src       | Final source code for ChipWits                                                                                                                     |
+| CW+ 800K                 | Disk labeled CW+                                                                                                                                   |
+| CW Programs              | Full label: 2 ChipWits in Greedville 1 in Octopus Garden First CW in Greedville goes into all rooms second tests for can and disk before going in. |
+| ChipWits 1.1 Drexel Demo |                                                                                                                                                    |
+| Adventure Creation Disk  |                                                                                                                                                    |
+| CW Demo Release          |                                                                                                                                                    |
+| ChipWits MacPaint Files  |                                                                                                                                                    |
+| CW Demo                  |                                                                                                                                                    |
+| CW+ 400K (damaged)       | This disk had physical damage                                                                                                                      |
+| CW+ Copy 1               |                                                                                                                                                    |
+| CW Work I Bak            |                                                                                                                                                    |
+| CW Work I                |                                                                                                                                                    |
+| CW Work II               |                                                                                                                                                    |
+| CW Work (II) 8-1-85      |                                                                                                                                                    |
 
 # Opening the Disks
 

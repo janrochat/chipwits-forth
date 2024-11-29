@@ -31,40 +31,38 @@ The disk images and user manual for Super Forth 64 can be found online:
 
 # Disks
 
-The following disks have been restored. The filenames match the
-labels on the disks. The filenames that start with `bad-*` had bad sectors
-but an attempt was made to recover as much of the disk as possible. The
-other disks were 100% recovered according to XoomFloppy, but may have
-occasional track corruption.
+The following disks have been restored. The folder names match the
+labels on the disks.
+
+These disks were imaged by John Morris, using Applesauce. The images are in the `.d64` format.
 
 One of the challenges is, since there was no system time on the C64, there
 are no timestamps on the disks. So it's hard to know which disk is the
 latest version of the source code. We preserved the names on the labels of
 the disks, which does help, somewhat.
 
-| Disk                                                                                            | Notes                                                          |
-|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64 |                                                                |
-| bad-forth-source-screens-cw-master-src-1-of-3.d64                                               |                                                                |
-| bad-forth-source-screens-cw-master-src-1-of-3.take2.d64                                         | Second attempt to read this disk                               |
-| c-64-chipwits-joystick-and-menu-stuff-backups.d64                                               |                                                                |
-| char-bak-cw-c64-11-2-84.d64                                                                     |                                                                |
-| cw-boot-c64-bak-2.d64                                                                           | ChipWits Full Game Boot Disk 2 (see Boot Disk Backup 2, below) |
-| cw-boot-c64-bak.d64                                                                             |                                                                |
-| cw-c64-sprite-bak.d64                                                                           |                                                                |
-| cw-characterscreens-11-3-84-ttl-saves-c64.d64                                                   |                                                                |
-| cw-forth-source-screens-9-18-84-forth-demo.d64                                                  | Source code to Epyx demo given on 9/18/1984                    |
-| cw-game-screens-11-3-84-cw-master-src-3-of-3.d64                                                |                                                                |
-| cw-gameback-screens-11-3-84.d64                                                                 |                                                                |
-| cw-gameback-screens.d64                                                                         |                                                                |
-| cw-graphics-c64-character-backup.d64                                                            |                                                                |
-| cw-show-9-18-84-original-c64-epyx-demo.d64                                                      | Demo given to Epyx on 9/18/1984                                |
-| cw-sprite-bak.d64                                                                               |                                                                |
-| cw-sprite-screens-11-20-84.d64                                                                  |                                                                |
-| cwforthbak-forth-source-bac.d64                                                                 |                                                                |
-| joystick-and-menu-bak.d64                                                                       |                                                                |
-| rbfort-bak-src-2-5-86.d64                                                                       |                                                                |
-| rbgame-back-src-2-5-86.d64                                                                      |                                                                |
+| Disk                               | Notes                                                          |
+|------------------------------------|----------------------------------------------------------------|
+| Master 1of3 - Forth Source Screens |                                                                |
+| Master 2of3 - CW Joy+Menu Screen   |                                                                |
+| Master 3of3 - CW Game Screens      |                                                                |
+| Joystick + Menu Stuff Backups      |                                                                |
+| Char Bak 11-2-84                   |                                                                |
+| CW Boot Bak                        | ChipWits Full Game Boot Disk 2 (see Boot Disk Backup 2, below) |
+| CW Boot                            |                                                                |
+| CW Sprite Bak                      |                                                                |
+| Character Screens                  |                                                                |
+| CW Forth 9-18-84                   | Source code to Epyx demo given on 9/18/1984                    |
+| Game Bak Screens 11-3-84           |                                                                |
+| Game Screens                       |                                                                |
+| CW Graphics                        |                                                                |
+| CW Show Original Epyx Demo 9-28-84 | Demo given to Epyx on 9/18/1984                                |
+| CW Sprite Bak 2                    |                                                                |
+| CW Sprite Screens                  |                                                                |
+| CW Forth Bak                       |                                                                |
+| Joystick + Menu Bak                |                                                                |
+| RBFORT BAK Src 2-5-86              |                                                                |
+| RBGAME BACK Src 2-5-86             |                                                                |
 
 # Epyx Demo
 
@@ -153,7 +151,6 @@ python .\extract-forth.py --input ..\disks\rbgame-back-src-2-5-86.d64 --output .
 # Future Work
 
 Further work needs to be done:
-* decode the other disks in this set
 * catalog the latest version of the source code that is not corrupt
 * assemble an ASCII listing of the complete latest source
 * get the source for the full game to build and run

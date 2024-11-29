@@ -9,6 +9,24 @@ Macintosh), ChipWits, Inc. released the source code for the game to the public. 
 hopes that this will inspire a new generation of programmers to learn about FORTH and
 how many games were programmed in the 1980s.
 
+# Restoring the Disks
+
+The team did some initial work to image the disks using a combination of a PowerBook G3,
+a GreaseWeazel and a 1541 Commodore 64 disk drive. Most of the data was successfully recovered
+except for some bad sectors on a few disks. You can [read about the original restoration
+efforts](https://chipwits.com/2024/11/16/chipwits-40th-birthday-original-forth-code-open-sourced/).
+
+After our open source announcement, our restoration efforts were joined by a renowned
+expert in disk imaging, John K. Morris, creator of the
+[AppleSauce Floppy Driver Controller](https://applesaucefdc.com/). John was able to recover
+the remaining bad sectors and create a complete set of disk images, aside from a single bad
+sector on a single disk! John also took a photograph of each disk. This project owes John
+a debt of gratitude for his expertise and generous volunteer efforts.
+
+You can find the disk images and photographs in the `disks/` subdirectory of the `mac/`,
+`c64/` and `appleii/` directories.
+
+
 # What is ChipWits?
 
 From the manual:

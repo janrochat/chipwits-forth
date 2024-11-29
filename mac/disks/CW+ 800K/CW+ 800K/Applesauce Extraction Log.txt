@@ -1,0 +1,236 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 17:23
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh HFS
+
+== STATUS ======================================================================
+
+22 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+ChipWits
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+  <dir>   ChipWit Big Folder                       27 APR 1993  27 APR 1993
+ERIK FNDR Desktop                            4769  27 APR 1993  13 APR 1993
+
+
+ChipWits:ChipWit Big Folder
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+.... DATA Boomtown                            800  04 NOV 1984  21 OCT 1984
+.... DATA ChipWit Caves                      1120  04 NOV 1984  13 AUG 1984
+M4TH APPL ChipWits                         103777  22 JUL 1986  13 OCT 1984
+.... DATA Copy of CW                        19200  27 OCT 1986  24 SEP 1984
+.... DATA CW                                19200  03 JAN 1990  24 SEP 1984
+.... DATA Doom Rooms                         1120  21 OCT 1984  10 OCT 1984
+.... DATA Greedville                          400  26 SEP 1984  13 AUG 1984
+.... DATA IBOL                               3200  29 OCT 1984  30 SEP 1984
+.... DATA Memory Lanes                        880  15 OCT 1984  15 OCT 1984
+.... DATA Mystery Matrix                     8080  05 NOV 1984  10 OCT 1984
+.... DATA Octopus Garden                     3600  21 OCT 1984  21 OCT 1984
+.... DATA Peace Paths                        4400  04 NOV 1984  10 OCT 1984
+.... DATA Source Graphics                   10672  01 NOV 1984  18 AUG 1984
+  <dir>   Various CW docs                          27 APR 1993  01 DEC 1989
+
+
+ChipWits:ChipWit Big Folder:Various CW docs
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+MACA WORD ChipWit Anatomy                    7574  27 APR 1993  27 APR 1993
+MACA WORD ChipWit Intro                      6930  27 APR 1993  27 APR 1993
+MACA WORD CW User Doc                        8503  14 FEB 1985  30 SEP 1984
+MACA WORD Environment Discriptions          17232  15 OCT 1984  14 OCT 1984
+MACA WORD IBOL Manual I                     18014  26 APR 1993  26 APR 1993
+MPNT PNTG IBOL Ref Card A                   29696  01 OCT 1984  30 SEP 1984
+MPNT PNTG IBOL Ref Card B                   24576  01 OCT 1984  01 OCT 1984
+MACA WORD Stack Stuff                        9271  14 OCT 1984  13 OCT 1984
+
+
+== FILE DETAILS ================================================================
+
+Desktop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: aafd7750aebf9aca342016fff56847f0
+
+     CNID: 17       Block Qty: 13       File Size: 4769         Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 4769     Rsrc Blks: 13       
+
+--------------------------------------------------------------------------------
+
+Boomtown
+Creator: '....'  Type: 'DATA'              MD5: 741be00bfaaa27dbddc0c18132f5cc22
+
+     CNID: 18       Block Qty: 2        File Size: 800          Flags: $00      
+Data Size: 800      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWit Caves
+Creator: '....'  Type: 'DATA'              MD5: e63054f83eccd87aa6aa30f6549413a4
+
+     CNID: 19       Block Qty: 3        File Size: 1120         Flags: $00      
+Data Size: 1120     Data Blks: 3        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits
+Creator: 'M4TH'  Type: 'APPL'              MD5: 007930fe37ca36a4578326e32866c7c5
+
+     CNID: 20       Block Qty: 203      File Size: 103777       Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 103777   Rsrc Blks: 203      
+
+--------------------------------------------------------------------------------
+
+Copy of CW
+Creator: '....'  Type: 'DATA'              MD5: 9461af8d373ce0e1bba2f1998a90dbea
+
+     CNID: 21       Block Qty: 38       File Size: 19200        Flags: $00      
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+CW
+Creator: '....'  Type: 'DATA'              MD5: 75ea7587048b37d85dd1fb35038aac1d
+
+     CNID: 22       Block Qty: 38       File Size: 19200        Flags: $00      
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Doom Rooms
+Creator: '....'  Type: 'DATA'              MD5: 74eb84c152af4f6b6feb3abd67177213
+
+     CNID: 23       Block Qty: 3        File Size: 1120         Flags: $00      
+Data Size: 1120     Data Blks: 3        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Greedville
+Creator: '....'  Type: 'DATA'              MD5: ab9fbca132690118df1ae5709eecba65
+
+     CNID: 25       Block Qty: 1        File Size: 400          Flags: $00      
+Data Size: 400      Data Blks: 1        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+IBOL
+Creator: '....'  Type: 'DATA'              MD5: da09e14fece64b33bf4ac0f1810b95f2
+
+     CNID: 26       Block Qty: 7        File Size: 3200         Flags: $00      
+Data Size: 3200     Data Blks: 7        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Memory Lanes
+Creator: '....'  Type: 'DATA'              MD5: d4b141225dec9935a477ebc4421c8280
+
+     CNID: 28       Block Qty: 2        File Size: 880          Flags: $00      
+Data Size: 880      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Mystery Matrix
+Creator: '....'  Type: 'DATA'              MD5: 0c953aaf24d9c393e06626e93aeacb82
+
+     CNID: 29       Block Qty: 16       File Size: 8080         Flags: $00      
+Data Size: 8080     Data Blks: 16       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Octopus Garden
+Creator: '....'  Type: 'DATA'              MD5: b7366e12e0b67273d76c632b42e72af9
+
+     CNID: 30       Block Qty: 8        File Size: 3600         Flags: $00      
+Data Size: 3600     Data Blks: 8        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Peace Paths
+Creator: '....'  Type: 'DATA'              MD5: 1efdd1fdabaee94fbd3d76bef5210993
+
+     CNID: 31       Block Qty: 9        File Size: 4400         Flags: $00      
+Data Size: 4400     Data Blks: 9        Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Source Graphics
+Creator: '....'  Type: 'DATA'              MD5: 2e20fe06ca52139270e294322825df10
+
+     CNID: 32       Block Qty: 21       File Size: 10672        Flags: $00      
+Data Size: 10672    Data Blks: 21       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWit Anatomy
+Creator: 'MACA'  Type: 'WORD'              MD5: 74ef3af4756930f5efad4e556bd9b6ea
+
+     CNID: 44       Block Qty: 16       File Size: 7574         Flags: $00      
+Data Size: 6772     Data Blks: 14       Rsrc Size: 802      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
+ChipWit Intro
+Creator: 'MACA'  Type: 'WORD'              MD5: d1bc9cc338f3fcc65a393304363a4f81
+
+     CNID: 43       Block Qty: 14       File Size: 6930         Flags: $00      
+Data Size: 6128     Data Blks: 12       Rsrc Size: 802      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
+CW User Doc
+Creator: 'MACA'  Type: 'WORD'              MD5: 538c22c2ba2178410dee45cd255609be
+
+     CNID: 36       Block Qty: 18       File Size: 8503         Flags: $00      
+Data Size: 7701     Data Blks: 16       Rsrc Size: 802      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
+Environment Discriptions
+Creator: 'MACA'  Type: 'WORD'              MD5: 037dd8b0ebd3475de8d60883b8cc94fb
+
+     CNID: 37       Block Qty: 35       File Size: 17232        Flags: $00      
+Data Size: 16450    Data Blks: 33       Rsrc Size: 782      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
+IBOL Manual I
+Creator: 'MACA'  Type: 'WORD'              MD5: bbbf2b761a9a99e59b4f9f69d541b7d7
+
+     CNID: 42       Block Qty: 36       File Size: 18014        Flags: $00      
+Data Size: 17212    Data Blks: 34       Rsrc Size: 802      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
+IBOL Ref Card A
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 2125e0f80877196f9bbcf0514a25d24d
+
+     CNID: 39       Block Qty: 58       File Size: 29696        Flags: $00      
+Data Size: 29696    Data Blks: 58       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+IBOL Ref Card B
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 210bb1ddad407eee27eeb8938677284c
+
+     CNID: 40       Block Qty: 48       File Size: 24576        Flags: $00      
+Data Size: 24576    Data Blks: 48       Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Stack Stuff
+Creator: 'MACA'  Type: 'WORD'              MD5: ccc4902bfc77511626f9a1c0e5145e8f
+
+     CNID: 41       Block Qty: 19       File Size: 9271         Flags: $00      
+Data Size: 8489     Data Blks: 17       Rsrc Size: 782      Rsrc Blks: 2        
+
+--------------------------------------------------------------------------------
+
