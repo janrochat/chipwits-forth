@@ -1,0 +1,215 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 18:12
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh MFS
+
+== STATUS ======================================================================
+
+17 files were detected on the disk.
+The following errors were encountered:
+
+CW has 1 bad block(s).
+
+== CATALOG =====================================================================
+
+CW+
+
+CRTR TYPE NAME                          ALLOCS  LENGTH  MODIFIED     CREATED
+
+ERIK FNDR DeskTop                            4    2422  01 DEC 1989  30 JUL 1986
+.... DATA IBOL                               4    3200  29 OCT 1984  30 SEP 1984
+.... DATA Mystery Matrix                     8    8080  05 NOV 1984  10 OCT 1984
+.... DATA Doom Rooms                         2    1120  21 OCT 1984  10 OCT 1984
+.... DATA Peace Paths                        5    4400  04 NOV 1984  10 OCT 1984
+.... DATA Greedville                         1     400  26 SEP 1984  13 AUG 1984
+M4TH APPL ChipWits                         102  103777  22 JUL 1986  13 OCT 1984
+MACS FNDR Finder                            56   56550  04 JUN 1986  04 JUN 1986
+.... DATA Source Graphics                   11   10672  01 NOV 1984  18 AUG 1984
+.... DATA ChipWit Caves                      2    1120  04 NOV 1984  13 AUG 1984
+.... DATA Octopus Garden                     4    3600  21 OCT 1984  21 OCT 1984
+.... DATA Memory Lanes                       1     880  15 OCT 1984  15 OCT 1984
+.... DATA Boomtown                           1     800  04 NOV 1984  21 OCT 1984
+IWRT PRES ImageWriter                       31   31362  17 JUL 1986  28 MAY 1986
+.... DATA CW                                19   19200  29 OCT 2020  24 SEP 1984
+.... DATA Copy of CW                        19   19200  27 OCT 1986  24 SEP 1984
+MACS ZSYS System                            75   76068  20 JUL 1986  02 JUN 1986
+
+
+== FILE DETAILS ================================================================
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: 4198290c56a73a139af0fcaa7d2f2e29
+
+
+   Allocs: 4        Block Qty: 8        File Size: 2422     
+Data Size: 0        Data Blks: 0        Rsrc Size: 2422     Rsrc Blks: 8        
+    Flags: $80         Finder: $4000       File #: 1         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+IBOL
+Creator: '....'  Type: 'DATA'              MD5: da09e14fece64b33bf4ac0f1810b95f2
+
+
+   Allocs: 4        Block Qty: 8        File Size: 3200     
+Data Size: 3200     Data Blks: 8        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 4         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Mystery Matrix
+Creator: '....'  Type: 'DATA'              MD5: 0c953aaf24d9c393e06626e93aeacb82
+
+
+   Allocs: 8        Block Qty: 16       File Size: 8080     
+Data Size: 8080     Data Blks: 16       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 5         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Doom Rooms
+Creator: '....'  Type: 'DATA'              MD5: 74eb84c152af4f6b6feb3abd67177213
+
+
+   Allocs: 2        Block Qty: 4        File Size: 1120     
+Data Size: 1120     Data Blks: 4        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 6         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Peace Paths
+Creator: '....'  Type: 'DATA'              MD5: 1efdd1fdabaee94fbd3d76bef5210993
+
+
+   Allocs: 5        Block Qty: 10       File Size: 4400     
+Data Size: 4400     Data Blks: 10       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 7         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Greedville
+Creator: '....'  Type: 'DATA'              MD5: ab9fbca132690118df1ae5709eecba65
+
+
+   Allocs: 1        Block Qty: 2        File Size: 400      
+Data Size: 400      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 8         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits
+Creator: 'M4TH'  Type: 'APPL'              MD5: 7ff4208527074ddcfeef1c4b699bc348
+
+
+   Allocs: 102      Block Qty: 204      File Size: 103777   
+Data Size: 0        Data Blks: 0        Rsrc Size: 103777   Rsrc Blks: 204      
+    Flags: $80         Finder: $2100       File #: 18        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Finder
+Creator: 'MACS'  Type: 'FNDR'              MD5: 0874787ecc322cfeb4153e0453d8b68e
+
+
+   Allocs: 56       Block Qty: 112      File Size: 56550    
+Data Size: 0        Data Blks: 0        Rsrc Size: 56550    Rsrc Blks: 112      
+    Flags: $80         Finder: $1100       File #: 19        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Source Graphics
+Creator: '....'  Type: 'DATA'              MD5: 2e20fe06ca52139270e294322825df10
+
+
+   Allocs: 11       Block Qty: 22       File Size: 10672    
+Data Size: 10672    Data Blks: 22       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 9         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWit Caves
+Creator: '....'  Type: 'DATA'              MD5: e63054f83eccd87aa6aa30f6549413a4
+
+
+   Allocs: 2        Block Qty: 4        File Size: 1120     
+Data Size: 1120     Data Blks: 4        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 10        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Octopus Garden
+Creator: '....'  Type: 'DATA'              MD5: b7366e12e0b67273d76c632b42e72af9
+
+
+   Allocs: 4        Block Qty: 8        File Size: 3600     
+Data Size: 3600     Data Blks: 8        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 11        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Memory Lanes
+Creator: '....'  Type: 'DATA'              MD5: d4b141225dec9935a477ebc4421c8280
+
+
+   Allocs: 1        Block Qty: 2        File Size: 880      
+Data Size: 880      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 12        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Boomtown
+Creator: '....'  Type: 'DATA'              MD5: 741be00bfaaa27dbddc0c18132f5cc22
+
+
+   Allocs: 1        Block Qty: 2        File Size: 800      
+Data Size: 800      Data Blks: 2        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 13        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ImageWriter
+Creator: 'IWRT'  Type: 'PRES'              MD5: aa8600050a1ded4387224957e1f9ddea
+
+
+   Allocs: 31       Block Qty: 62       File Size: 31362    
+Data Size: 0        Data Blks: 0        Rsrc Size: 31362    Rsrc Blks: 62       
+    Flags: $80         Finder: $3100       File #: 20        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+CW
+Creator: '....'  Type: 'DATA'              MD5: 5406fb9e2e48ec752cb85bf356585b88
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19200    
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 22        Folder #: 0        
+
+Bytes 16384-16895 are empty due to bad block 472.
+
+--------------------------------------------------------------------------------
+
+Copy of CW
+Creator: '....'  Type: 'DATA'              MD5: 9461af8d373ce0e1bba2f1998a90dbea
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19200    
+Data Size: 19200    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 23        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+System
+Creator: 'MACS'  Type: 'ZSYS'              MD5: 00ba6883f86793dabad778347d6ff52f
+
+
+   Allocs: 75       Block Qty: 150      File Size: 76068    
+Data Size: 1024     Data Blks: 2        Rsrc Size: 75044    Rsrc Blks: 148      
+    Flags: $80         Finder: $3100       File #: 21        Folder #: 0        
+
+--------------------------------------------------------------------------------
+

@@ -1,0 +1,310 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0b14
+www.applesaucefdc.com
+
+Timestamp: Nov 27, 2024 at 15:54
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh MFS
+
+== STATUS ======================================================================
+
+26 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+CW Graphics
+
+CRTR TYPE NAME                          ALLOCS  LENGTH  MODIFIED     CREATED
+
+MPNT PNTG ChipWits Graphics                 24   24064  16 OCT 1984  18 AUG 1984
+ERIK FNDR DeskTop                            2    1549  11 APR 1985  08 SEP 1984
+MPNT PNTG ChipWits Grid                     11   11264  10 JUL 1984  07 JUL 1984
+MPNT PNTG ChipWit                           12   11776  14 AUG 1984  04 JUL 1984
+MPNT PNTG IBOL FEEL FOR                     17   17408  24 JUL 1984  22 JUL 1984
+MPNT PNTG Robotnik Room Template            16   16384  13 AUG 1984  23 MAY 1984
+MPNT PNTG Ibol Symbols                       7    6656  20 JUL 1984  20 JUL 1984
+MPNT PNTG IBOL MOVE                         14   14336  22 JUL 1984  22 JUL 1984
+MPNT PNTG IBOL Sheet                        13   13312  22 JUL 1984  21 JUL 1984
+MPNT PNTG CW Screen Template                 8    8192  22 JUL 1984  22 JUL 1984
+MPNT PNTG CW Game Screen                    21   20992  24 JUL 1984  22 JUL 1984
+MPNT PNTG CW Coding Screen                  21   20992  05 AUG 1984  22 JUL 1984
+MPNT PNTG IBOL BLURB                        10    9728  07 AUG 1984  07 AUG 1984
+.... APPL Font Editor                       32   32768  07 MAR 1984  06 MAR 1984
+.... .... Fonts                              0       0  14 SEP 1984  14 SEP 1984
+MPNT PNTG IBOL Graphics                     20   20480  30 SEP 1984  26 SEP 1984
+MPNT PNTG Latest IBOL                        7    6656  01 NOV 1984  01 OCT 1984
+MPNT PNTG CW Map                             5    5120  10 OCT 1984  10 OCT 1984
+MPNT PNTG New CW Graphics                   18   17920  01 NOV 1984  13 OCT 1984
+MPNT PNTG CW Interior Dec                    7    7168  08 NOV 1984  16 OCT 1984
+MPNT PNTG Sprite Grid                       14   13824  29 OCT 1984  29 OCT 1984
+MPNT PNTG C64 mem                           15   15360  29 OCT 1984  29 OCT 1984
+MPNT PNTG  CW Title                          7    7168  01 NOV 1984  01 NOV 1984
+MPNT PNTG C-64 Screen                       19   19456  13 NOV 1984  13 NOV 1984
+MPNT PNTG Screen 2                          17   17234  14 MAR 1985  14 MAR 1985
+MPNT PNTG MacFORTH Promo screen             17   17408  14 MAR 1985  14 MAR 1985
+
+
+== FILE DETAILS ================================================================
+
+ChipWits Graphics
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 8b40e75ffab3a5d788c18defc4cd3c3b
+
+
+   Allocs: 24       Block Qty: 48       File Size: 24064    
+Data Size: 24064    Data Blks: 48       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 1         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: cc69eb4f1a4e2d41f96adcefa1fc861e
+
+
+   Allocs: 2        Block Qty: 4        File Size: 1549     
+Data Size: 0        Data Blks: 0        Rsrc Size: 1549     Rsrc Blks: 4        
+    Flags: $80         Finder: $4000       File #: 2         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits Grid
+Creator: 'MPNT'  Type: 'PNTG'              MD5: df6474ae1908e38b6a92a1d9b7d0082d
+
+
+   Allocs: 11       Block Qty: 22       File Size: 11264    
+Data Size: 11264    Data Blks: 22       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 3         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+ChipWit
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 414ba260a431fed52d91f93e6c809d4c
+
+
+   Allocs: 12       Block Qty: 24       File Size: 11776    
+Data Size: 11776    Data Blks: 24       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 4         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+IBOL FEEL FOR
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 5f8c01fe9248f365fc4a16a5f31ba07c
+
+
+   Allocs: 17       Block Qty: 34       File Size: 17408    
+Data Size: 17408    Data Blks: 34       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 5         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+Robotnik Room Template
+Creator: 'MPNT'  Type: 'PNTG'              MD5: fef0dcbdd8d5a9ba6c9c24fcff31563c
+
+
+   Allocs: 16       Block Qty: 32       File Size: 16384    
+Data Size: 16384    Data Blks: 32       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 6         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+Ibol Symbols
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 33308c2bde0f363a299a3d34da2c8aa7
+
+
+   Allocs: 7        Block Qty: 14       File Size: 6656     
+Data Size: 6656     Data Blks: 14       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 7         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+IBOL MOVE
+Creator: 'MPNT'  Type: 'PNTG'              MD5: f30641a6c09c64a07168297d5f097e48
+
+
+   Allocs: 14       Block Qty: 28       File Size: 14336    
+Data Size: 14336    Data Blks: 28       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 8         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+IBOL Sheet
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 6b4ffcf28c8b75b7b6095274b8240dd5
+
+
+   Allocs: 13       Block Qty: 26       File Size: 13312    
+Data Size: 13312    Data Blks: 26       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 9         Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+CW Screen Template
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 87fa7f2c68555877aa984a517adcb8a2
+
+
+   Allocs: 8        Block Qty: 16       File Size: 8192     
+Data Size: 8192     Data Blks: 16       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 10        Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+CW Game Screen
+Creator: 'MPNT'  Type: 'PNTG'              MD5: b64fb07e244dab599cc59b1c9be24206
+
+
+   Allocs: 21       Block Qty: 42       File Size: 20992    
+Data Size: 20992    Data Blks: 42       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 11        Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+CW Coding Screen
+Creator: 'MPNT'  Type: 'PNTG'              MD5: a5caea36bd001e298271d611bc93e6df
+
+
+   Allocs: 21       Block Qty: 42       File Size: 20992    
+Data Size: 20992    Data Blks: 42       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 12        Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+IBOL BLURB
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 768c7fbaea697785bb30f4a57a0e1cb0
+
+
+   Allocs: 10       Block Qty: 20       File Size: 9728     
+Data Size: 9728     Data Blks: 20       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 13        Folder #: 21164    
+
+--------------------------------------------------------------------------------
+
+Font Editor
+Creator: '....'  Type: 'APPL'              MD5: df267f6163f2fd90644d10706715e6ec
+
+
+   Allocs: 32       Block Qty: 64       File Size: 32768    
+Data Size: 0        Data Blks: 0        Rsrc Size: 32768    Rsrc Blks: 64       
+    Flags: $80         Finder: $0100       File #: 14        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Fonts
+Creator: '....'  Type: '....'                                              MD5: 
+
+
+   Allocs: 0        Block Qty: 0        File Size: 0        
+Data Size: 0        Data Blks: 0        Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 16        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+IBOL Graphics
+Creator: 'MPNT'  Type: 'PNTG'              MD5: e33fccf60b62495abaf6d0c8b57a5b45
+
+
+   Allocs: 20       Block Qty: 40       File Size: 20480    
+Data Size: 20480    Data Blks: 40       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 17        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Latest IBOL
+Creator: 'MPNT'  Type: 'PNTG'              MD5: e54989a59a96b53b18ba58d68972bf7f
+
+
+   Allocs: 7        Block Qty: 14       File Size: 6656     
+Data Size: 6656     Data Blks: 14       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 18        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+CW Map
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 8e1faa6014644c5ffe7882f923cc1afa
+
+
+   Allocs: 5        Block Qty: 10       File Size: 5120     
+Data Size: 5120     Data Blks: 10       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 19        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+New CW Graphics
+Creator: 'MPNT'  Type: 'PNTG'              MD5: e9d867902d318c89c1c07117f79de1c5
+
+
+   Allocs: 18       Block Qty: 36       File Size: 17920    
+Data Size: 17920    Data Blks: 36       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 20        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+CW Interior Dec
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 40fd06521c2056a45c62b4b9f315cff1
+
+
+   Allocs: 7        Block Qty: 14       File Size: 7168     
+Data Size: 7168     Data Blks: 14       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 21        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Sprite Grid
+Creator: 'MPNT'  Type: 'PNTG'              MD5: bf54471b4bceaa4b118678e7232778ec
+
+
+   Allocs: 14       Block Qty: 28       File Size: 13824    
+Data Size: 13824    Data Blks: 28       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 22        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+C64 mem
+Creator: 'MPNT'  Type: 'PNTG'              MD5: db2820505a8f1960b33c6baa7dcc1988
+
+
+   Allocs: 15       Block Qty: 30       File Size: 15360    
+Data Size: 15360    Data Blks: 30       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 23        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ CW Title
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 6fe79a5bc9af8d4a356ced4adb5ba819
+
+
+   Allocs: 7        Block Qty: 14       File Size: 7168     
+Data Size: 7168     Data Blks: 14       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 24        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+C-64 Screen
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 28f1aae1413294b47353a4a408c9d971
+
+
+   Allocs: 19       Block Qty: 38       File Size: 19456    
+Data Size: 19456    Data Blks: 38       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 25        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Screen 2
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 84488ae593448a5620b2c15eb90008e4
+
+
+   Allocs: 17       Block Qty: 34       File Size: 17234    
+Data Size: 17234    Data Blks: 34       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 26        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+MacFORTH Promo screen
+Creator: 'MPNT'  Type: 'PNTG'              MD5: 4572538d93185f2283d87795c70b63a6
+
+
+   Allocs: 17       Block Qty: 34       File Size: 17408    
+Data Size: 17408    Data Blks: 34       Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 27        Folder #: 0        
+
+--------------------------------------------------------------------------------
+
