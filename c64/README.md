@@ -71,10 +71,10 @@ Epyx, the publisher for Commodore 64. The demo fits on a single disk and
 can be loaded and run as follows:
 
 1. Open the Vice 64 Emulator
-2. Attach disk image `SUPER FORTH 64.d64` to Drive #8
+2. Attach disk image `SUPER FORTH 64.d64` to Drive #8 (Obtainable via http://www.vintagevolts.com/pages/commodore-64-file-downloads/?drawer=Programming)
 3. `LOAD "*", 8`
 4. `RUN`
-5. Attach disk image `cw-forth-source-screens-9-18-84-forth-demo.d64` to Drive #8
+5. Attach disk image `CW Forth 9-18-84.d64` to Drive #8
 6. `VARIABLE IT` (needed because the first statement is `FORGET IT : IT ;`)
 7. `DR0 1 LOAD` (you may wish to activate Warp Mode during this step, as the loading will otherwise take about 6
 minutes)
@@ -88,7 +88,7 @@ but you cannot see the source code in this mode. I'm not sure if this is the fin
 the game, but it seems to run quite cleanly! 
 
 1. Open the Vice 64 Emulator
-2. Attach disk image `cw-boot-c64-bak-2.d64` to Drive #8
+2. Attach disk image `CW Boot Bak.d64` to Drive #8
 3. `LOAD "GAME", 8` (warp mode recommended for this step)
 4. `RUN` (this should launch Super Forth 64 v2.1)
 5. `CHIPWITS` (starts the game!)
@@ -98,55 +98,26 @@ Instead of running `CHIPWITS` you can also run `VLIST` to list all the forth def
 # 11-3-84
 In progress:
 1. Configure the emulator for 2 1541 II drives.
-2. Attach disk image `SUPER FORTH 64.d64` to Drive #8
+2. Attach disk image `SUPER FORTH 64.d64` to Drive #8 (Obtainable via http://www.vintagevolts.com/pages/commodore-64-file-downloads/?drawer=Programming)
 3. `LOAD "*", 8`
 4. `RUN`
 5. `CONFIGURE` (specify 2 drives - see page 25 of the Super Forth 64 manual - this allows screens 170+ to be loaded from drive 9)
 6. Load definition for `$+`:
-   1. Attach disk image `rbfort-bak-src-2-5-86.d64` to Drive #8
+   1. Attach disk image `RBFORT BAK Src 2-5-86.d64` to Drive #8
    2. `DR0 7 LOAD`
    3. `DR0 8 LOAD`
    4. Need to define LR. Which screen?
 7. Load definition for `CHAR>BUFFER`:
-   1. Attach disk image `char-bak-cw-c64-11-2-84.d64` to Drive #9
+   1. Attach disk image `Char Bak 11-2-84.d64` to Drive #9
    2. `DR1 2 LOAD`
-8. Attach disk image `cw-gameback-screens-11-3-84.d64` to Drive #8
-9. Attach disk image `cw-characterscreens-11-3-84-ttl-saves-c64.d64` to Drive #9
+8. Attach disk image `Game Bak Screens 11-3-84.d64` to Drive #8
+9. Attach disk image `Character Screens.d64` to Drive #9
 10. `DR0 1 LOAD`
 
 # Readable FORTH Source
-The `forth/` directory contains semi-readable source files, re-encoded so that they can be
-read by a modern computer in UTF-8 encoding. They are non-normative and will not compile,
-but they are more convenient to read than the raw bytes.
+The `forth/` directory contains extracts of the SUPER FORTH 64 source code, re-encoded so that
+they can be read by a modern computer.
 
-Some of the files seem to be misaligned - it seems some of the screens have 40-character
-wide lines and some have 64-character wide lines.
-
-You can use the `python/extract-forth.py` script to extract a `.d64` file into
-a `.forth` file.
-
-Some commands used to extract `.forth` files
-```
-python .\extract-forth.py --input ..\disks\bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64 --output ..\forth\bad-cw-joy-and-menu-screen-orig-demo-cws-screen-file-prep-scenario-chopper-cw-master-2-of-3.d64.forth
-python .\extract-forth.py --input ..\disks\bad-forth-source-screens-cw-master-src-1-of-3.d64 --output ..\forth\bad-forth-source-screens-cw-master-src-1-of-3.d64.forth --line_width 64
-python .\extract-forth.py --input ..\disks\bad-forth-source-screens-cw-master-src-1-of-3.take2.d64 --output ..\forth\bad-forth-source-screens-cw-master-src-1-of-3.take2.d64.forth --line_width 64
-python .\extract-forth.py --input ..\disks\c-64-chipwits-joystick-and-menu-stuff-backups.d64 --output ..\forth\c-64-chipwits-joystick-and-menu-stuff-backups.d64
-python .\extract-forth.py --input ..\disks\char-bak-cw-c64-11-2-84.d64 --output ..\forth\char-bak-cw-c64-11-2-84.d64.forth
-python .\extract-forth.py --input ..\disks\cw-c64-sprite-bak.d64 --output ..\forth\cw-c64-sprite-bak.d64.forth
-python .\extract-forth.py --input ..\disks\cw-characterscreens-11-3-84-ttl-saves-c64.d64 --output ..\forth\cw-characterscreens-11-3-84-ttl-saves-c64.d64.forth
-python .\extract-forth.py --input ..\disks\cw-forth-source-screens-9-18-84-forth-demo.d64 --output ..\forth\cw-forth-source-screens-9-18-84-forth-demo.d64.forth
-python .\extract-forth.py --input ..\disks\cw-game-screens-11-3-84-cw-master-src-3-of-3.d64 --output ..\forth\cw-game-screens-11-3-84-cw-master-src-3-of-3.d64.forth
-python .\extract-forth.py --input ..\disks\cw-gameback-screens-11-3-84.d64 --output ..\forth\cw-gameback-screens-11-3-84.d64.forth
-python .\extract-forth.py --input ..\disks\cw-gameback-screens.d64 --output ..\forth\cw-gameback-screens.d64.forth
-python .\extract-forth.py --input ..\disks\cw-graphics-c64-character-backup.d64 --output ..\forth\cw-graphics-c64-character-backup.d64.forth
-python .\extract-forth.py --input ..\disks\cw-sprite-bak.d64.d64 --output ..\forth\cw-sprite-bak.d64.forth
-python .\extract-forth.py --input ..\disks\cw-sprite-screens-11-20-84.d64 --output ..\forth\cw-sprite-screens-11-20-84.d64.forth
-python .\extract-forth.py --input ..\disks\cwforthbak-forth-source-bac.d64 --output ..\forth\cwforthbak-forth-source-bac.d64.forth --line_width 64
-python .\extract-forth.py --input ..\disks\joystick-and-menu-bak.d64 --output ..\forth\joystick-and-menu-bak.d64.forth
-
-python .\extract-forth.py --input ..\disks\rbfort-bak-src-2-5-86.d64 --output ..\forth\rbfort-bak-src-2-5-86.d64.forth --line_width 64
-python .\extract-forth.py --input ..\disks\rbgame-back-src-2-5-86.d64 --output ..\forth\rbgame-back-src-2-5-86.d64.forth
-```
 
 # Future Work
 
