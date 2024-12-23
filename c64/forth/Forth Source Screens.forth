@@ -967,6 +967,23 @@ DECIMAL
 : F/  ( F#1 F#2 --- F# ; N Z V )  ( DIVIDE )                    
    DSWAP E@ >R   DSWAP E@ >R                                    
    DROP 1 SWAP M*/ R> R> SWAP - E! ;                            
+════════════════════════════════════════════════════════════════   SCREEN 058
+( F.P. MATH: ALIGN F+ F- )                                      
+: ALIGN ( M1 E1  M2 E2 --- M1 M2 E )                            
+   4 ROLL                                                       
+   BEGIN   DDUP = NOT                                           
+   WHILE  DDUP >  ( E2 > E1?{$A0})                                  
+    IF >R >R FBASE C@ 1 M*/ R> 1- R>                            
+    ELSE >R >R DSWAP FBASE C@ 1 M*/ DSWAP R> R> 1- THEN         
+   REPEAT DROP ;                                                
+                                                                
+: F+  ( F#1 F#2 --- FSUM ; N V Z )                              
+   E@  >R  DSWAP R> <ROT E@                                     
+   ALIGN  >R  D+  R>  E! ;                                      
+                                                                
+: F-  ( F#1 F#2 --- FDIFF ; N V Z )                             
+   DSWAP E@  >R  DSWAP R> <ROT E@                               
+   ALIGN >R  D-  R>  E! ;                                       
 ════════════════════════════════════════════════════════════════   SCREEN 059
 ( F.P. MATH: RSCALE LSCALE DFIX )                               
 : RSCALE  ( F# --- F# ; N Z V )                                 
@@ -1528,6 +1545,23 @@ S-DEF DRAGON2
 DECIMAL                                                         
                                                                 
                                                                 
+════════════════════════════════════════════════════════════════   SCREEN 094
+ ( IBOL & OBJ   CHAR DEFS)              256 102 - CONSTANT ARG.S
+T@              VARIABLE OP.CHAR ARG.ST@ 81 - OP.CHAR ! : OP.STU
+FF ( BYTES../STARTCHAR---)        2 1 OP.CHAR @ DUP 2 +    OP.CH
+AR !      C.STUFF ;                             : OP.B.STUFF ( B
+YTES  )                   2 3 OP.CHAR @ DUP 6 + OP.CHAR !       
+  C.STUFF ;                             : ARG.STUFF ( BYTES../AR
+G#--)             2 2 ROT 4 * ARG.ST@ + C.STUFF ;               
+                                ARG.ST@ 256 + 90 - OP.CHAR !    
+        : OBJ.STUFF ( BYTES--)                    3 2 OP.CHAR @ 
+DUP 6 + OP.CHAR !         C.STUFF ;                             
+                                        : DYE ( COLOR----) COLOR
+-MEM             256 ROT FILL ;                                 
+                                : TEST ." {$93}" 256 0 DO I 'SCREEN 
+I + HC!   LOOP 10 10 D-POSITION ;                 BLACK DYE TEST
+                                                                
+                                                                
 ════════════════════════════════════════════════════════════════   SCREEN 095
 ( CURVES: C-DRAW )                                              
 : C-DRAW  ( LEVEL --- )                                         
@@ -1630,6 +1664,23 @@ DECIMAL
 ' RDRAGON CFA ' CALL-RDRAGON !                                  
                                                                 
                                                                 
+════════════════════════════════════════════════════════════════   SCREEN 101
+( CURVES: D-CURVE WAIT-5-SEC DEMO )                             
+: D-CURVE ( LEVELS LENGTH --- )                                 
+   +90DEG 2* CURVE-INIT                                         
+   LDRAGON ;                                                    
+                                                                
+: DEMO ( --- )                                                  
+  24 D-SPLIT PAGE 3 24 D-POSITION                               
+  ."  *** {$C6}RACTALS BY {$D3}{$D5}{$D0}{$C5}{$D2}-{$C6}{$CF}{$D2}{$D4}{$C8} 64 *** "                      
+   BEGIN                                                        
+    7 1 DO                                                      
+     I 2* I 7 XOR MASK D-CURVE                                  
+     SOUND.INIT 120 WAIT LOOP                                   
+    6 1 DO                                                      
+     I 2* I 7 XOR 1- MASK C-CURVE                               
+     SOUND.INIT 120 WAIT LOOP                                   
+   AGAIN ;                                                      
 ════════════════════════════════════════════════════════════════   SCREEN 102
 ( BACKUP: DUAL DRIVE BUFFER COPY )                              
 ( COPY BUFFERS FROM DR0 TO DR1 )                                
@@ -1834,3 +1885,71 @@ DP ! FORTH  ( RESTORE DICT PTR )
  C9A2 27A9 !                                                    
  CD4C 26DD !  08 26DF C!                                        
 DECIMAL                                                         
+════════════════════════════════════════════════════════════════   SCREEN 120
+( SHOW)                                                         
+                                                                
+: SHOW ( BEGIN END---)                                          
+  1+ SWAP DO                                                    
+    I TRIAD                                                     
+  2 +LOOP ;                                                     
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+════════════════════════════════════════════════════════════════   SCREEN 121
+( 40 C/L IT)                                                    
+                                                                
+40 ' C/L !                                                      
+                                                                
+: IT ;                                                          
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+════════════════════════════════════════════════════════════════   SCREEN 122
+( CHEAP FORGET)                                                 
+                                                                
+: FORGET                                                        
+  [COMPILE] '                                                   
+  DUP NFA SWAP LFA @                                            
+  CURRENT @ !                                                   
+  DP ! ;                                                        
+                                                                
+                                                                
+ ( REMARK)                                                      
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+════════════════════════════════════════════════════════════════   SCREEN 123
+( NEW SAVE)                                                     
+ HEX                                                            
+: SAVE ( START END ---)                                         
+15 8 15 SETLFS                                                  
+SAVENAME SETNAM                                                 
+SWAP 14  !  ( SAVE START ADDR AT 4)                             
+14 SWAP SPLIT  FFD8 SY  ;                                       
+( START PT ENDLOT ENDHI SAVE ADDR)                              
+                                                                
+DECIMAL                                                         
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                

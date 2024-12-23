@@ -1,3 +1,55 @@
+════════════════════════════════════════   SCREEN 001
+( JOYSTICK MENU LOAD SCREEN)            
+( START FORTH INTERRUPT)                
+                                        
+172 175 THRU ( VARS & SPRITE)           
+                                        
+                                        
+                                        
+                                        
+ 181 189 THRU  ( JOYSTICK STUFF)        
+                                        
+ 200 207 THRU  ( MENU STUFF)            
+                                        
+ 250 254 THRU ( MENU TEST)              
+                                        
+ 260 LOAD     ( FRAME)                  
+ 279 284 THRU ( MACHINE LANG PROGS)     
+ FORTH .S   A-REMOVE                    
+ : IT ;                                 
+                                        
+ ( 320 329 GAME & WORKSHOP SCREENS)     
+ ( 310 -311 ARE SCENARIO SAVERS)        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 002
+( CURSOR VARS)                          
+                                        
+VARIABLE BUTTON.DOWN  0 BUTTON.DOWN !   
+                                        
+VARIABLE BUTTON.X  ( BUTTON DOWN POS)   
+VARIABLE BUTTON.Y                       
+0 BUTTON.Y ! 0 BUTTON.X !               
+EXIT                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 003
 ( CURS.SPR)     EXIT                    
 2 BASE !                                
@@ -23,6 +75,7 @@ S-DEF CURS.SPR
 00000000 00000000 00000000              
 00000000 00000000 00000000              
 00000000 00000000 00000000              
+DECIMAL                                 
 ════════════════════════════════════════   SCREEN 004
 ( GRAPH.MEM.INITGRAPH.LOAD,SET M.BAK1,2)
                                         
@@ -48,6 +101,33 @@ S-DEF CURS.SPR
    1 C@ 251 AND 1 C!                    
    53248 61440 4096 CMOVE               
    1 C@ 4 OR 1 C!                       
+   56334 C@ 1 OR 56334 C! ;             
+════════════════════════════════════════   SCREEN 005
+ ( CHAR.COLOR COLOR ASSIGNMENTS)        
+                                        
+ : CHAR.COLOR  ( COLOR---)              
+ ( SWITCHES CHARACTER COLORS)           
+ CASE BLACK OF ." {$90}" ;;                 
+ WHITE OF ."  " ;; RED OF ."  " ;;      
+ CYAN OF ." {$9F}" ;; PURPLE OF ." {$9C}" ;;    
+ GREEN OF ."  " ;; BLUE OF ."  " ;;     
+ YELLOW OF ." {$9E}" ;;                     
+ ORANGE OF ." {$81}" ;; BROWN OF ." {$95}" ;;   
+ LT.RED OF ." {$96}" ;; DK.GRAY OF ." {$97}" ;; 
+ MED.GRAY OF ." {$98}" ;;                   
+ LT.GREEN OF ." {$99}" ;;                   
+ LT.BLUE OF ." {$9A}" ;;                    
+ LT.GRAY OF ." {$9B}" ;;                    
+ ENDCASE ;                              
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 010
 ( JOYSTICK READER)                      
 : READ.JOY ( ---) JOY2 C@               
@@ -73,6 +153,7 @@ ELSE 0 BUTTON.DOWN ! DROP THEN ;
   20000 0 DO                            
    READ.JOY  CURS.X @ CURS.Y @          
    S-POSITION LOOP ;                    
+                                        
 ════════════════════════════════════════   SCREEN 011
 ( PT.IN.RECT)                           
 : PT.IN.RECT                            
@@ -98,6 +179,7 @@ SWAP >R
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 013
 ( JOY.READ VARS)                        
                                         
@@ -108,6 +190,7 @@ SWAP >R
  J.RIGHT 256 - CONSTANT J.RT.LO         
                                         
  EXIT                                   
+                                        
                                         
                                         
                                         
@@ -148,6 +231,7 @@ CODE   READ.JOY
     J.BOT # CPY,  ( AT BOT?)            
     0= NOT IF, INY, INY, THEN, ( NO)    
     D001 STY,                           
+   THEN,                                
 ════════════════════════════════════════   SCREEN 015
 ( MACHINE READ.JOY  CONT.D)             
    .A   LSR,  ( LEFT.TEST)              
@@ -173,6 +257,7 @@ CODE   READ.JOY
      0= IF, D010 INC, THEN, ( SPR0 HI)  
         ( IF 1 THEN INC HI BIT)         
      D000 STY,                          
+   THEN,                                
 ════════════════════════════════════════   SCREEN 016
 ( MACHINE READ.JOY END)                 
                                         
@@ -193,6 +278,7 @@ CODE   READ.JOY
  ' I-USER  JMP, ( NO SYS INTERRUPT)     
  END-CODE                               
  DECIMAL                                
+                                        
                                         
                                         
                                         
@@ -223,6 +309,7 @@ S1 ON   S-ENABLE
   ;                                     
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 018
  ( I-JOY)                               
                                         
@@ -242,6 +329,7 @@ S1 ON   S-ENABLE
  53274 0 MASK SBIT                      
  ( ENABLE RASTER INTERRUPT)             
  56334 C@ 1 OR 56334 C! ;               
+                                        
                                         
                                         
                                         
@@ -273,6 +361,59 @@ END-CODE
                                         
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 030
+( DRAW.MENU.BAR)                        
+  : DRAW.MENU.BAR ( ---)                
+    0 0 D-POSITION ." {$90} WAREHOUSE "     
+    ."  WORKSHOP "                      
+    ."  GAMES "                         
+    ."  OPTIONS    "  ;                 
+ CREATE MENU.X(                         
+ ( X BOUNDS OF EACH MENU HEADING)       
+ 1 C, 9  C,     ( WAREHOUSE)            
+ 12 C, 19 C,   ( WORKSHOP)              
+ 22 C, 26 C,   ( GAMES)                 
+ 29 C, 35 C,   ( OPTIONS)               
+                                        
+ 1024 CONSTANT COLOR.BUF(               
+ CREATE SCREEN.BUF( 1000 ALLOT          
+ : SAVE.SCREEN ( ---)                   
+   COLOR-MEM  COLOR.BUF( 1000 CMOVE     
+   'SCREEN SCREEN.BUF( 1000 CMOVE ;     
+ : RESTORE.SCREEN ( ---)                
+   0 20 DO                              
+     SCREEN.BUF( I 40 * +               
+     'SCREEN I 40 * + 40 CMOVE          
+     COLOR.BUF( I 40 * +                
+     COLOR-MEM I 40 * + 40 CMOVE        
+   -1 +LOOP ;                           
+════════════════════════════════════════   SCREEN 031
+( DISP.ITEM HILIGHT.ITEM)               
+VARIABLE MEN.WD  ( WIDTH OF ITEM $)     
+VARIABLE MEN.HI  ( # OF ITEMS)          
+VARIABLE MEN.X   ( LEFT EDGE OF MENU)   
+VARIABLE MEN$.ADDR                      
+VARIABLE MENU(                          
+: DISP.ITEM ( COLOR/ITEM#---)           
+  MEN.X @ 1- OVER 1+ D-POSITION         
+  ." {$90}'"  SWAP CHAR.COLOR               
+  DUP MEN.WD @ * ( INDEX INTO MEN$)     
+  MEN$.ADDR @ + 1+  ( ADDR$)            
+  MEN.WD @  TYPE   ( COUNT)             
+  ." {$90})" DROP ;                         
+                                        
+: BOT.SHADOW ( ---)                     
+  MEN.X @ 1- MEN.HI @ 1+ D-POSITION     
+  BLACK CHAR.COLOR  45 EMIT ( LEFT)     
+  MEN.WD @ 0 DO 38 EMIT LOOP            
+  44 EMIT  ( RT SHADOW)  ;              
+                                        
+: HILIGHT.ITEM ( COLOR/ITEM#---)        
+  1+ 40 * MEN.X @ +  COLOR-MEM +        
+  MEN.WD @ ROT FILL ;                   
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 032
 ( SHOW.MENU DISABLED, MEN$, ITEM.OFF)   
 VARIABLE ARR.ADDR ( MENU ARRAY)         
@@ -298,6 +439,7 @@ VARIABLE ARR.ADDR ( MENU ARRAY)
   SWAP 2+ MENU( @ +  C! ;               
                                         
 : ITEM.ENABLE  ( ITEM#/FLAG/MENUAD---)  
+ MENU( ! NOT ITEM.OFF ;                 
 ════════════════════════════════════════   SCREEN 033
 ( WAREHOUSE)                            
 CREATE WAREHOUSE(  1 C, ( LEFT EDGE)    
@@ -323,6 +465,7 @@ CREATE WAREHOUSE(  1 C, ( LEFT EDGE)
 " 15        " MEN$,                     
 " 16        " MEN$,                     
 : WH.MENU.                              
+WAREHOUSE$ WAREHOUSE( SHOW.MENU ;       
 ════════════════════════════════════════   SCREEN 034
 ( WORKSHOP)                             
 CREATE WORKSHOP(  12 C, ( LEFT EDGE)    
@@ -342,6 +485,7 @@ CREATE WORKSHOP(  12 C, ( LEFT EDGE)
                                         
 : WS.MENU.                              
  WORKSHOP$ WORKSHOP( SHOW.MENU ;        
+                                        
                                         
                                         
                                         
@@ -373,6 +517,7 @@ GAMES$ GAMES( SHOW.MENU ;
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 036
 ( OPTIONS)                              
 CREATE OPTIONS(  29 C, ( LEFT EDGE)     
@@ -398,6 +543,7 @@ CREATE OPTIONS(  29 C, ( LEFT EDGE)
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 037
  ( SET.ITEM$)                           
                                         
@@ -410,6 +556,7 @@ CREATE OPTIONS(  29 C, ( LEFT EDGE)
  SWAP COUNT    ( IT$/STR$/CNT)          
  SWAP            ( IT$/CNT/STR$)        
  ROT ROT CMOVE  ;                       
+                                        
                                         
                                         
                                         
@@ -448,6 +595,7 @@ VARIABLE ITEM.COUNT
  OPTIONS$ ,                             
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 081
 ( WHICH.MENU SHOW.MENU)                 
 : WHICH.MENU ( ---MENU# OR 0)           
@@ -473,6 +621,7 @@ VARIABLE ITEM.COUNT
     1 OF WH.MENU. ;;                    
     2 OF WS.MENU. ;;                    
     3 OF GM.MENU. ;;                    
+    4 OF OP.MENU. ;; ENDCASE ;          
 ════════════════════════════════════════   SCREEN 082
  ( NEW.ITEM)                            
                                         
@@ -490,6 +639,7 @@ VARIABLE ITEM.COUNT
    1- HILIGHT.ITEM                      
  ELSE DROP THEN                         
  THIS.ITEM ! ;                          
+                                        
                                         
                                         
                                         
@@ -523,6 +673,7 @@ VARIABLE ITEM.COUNT
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 084
 ( DO.MENU.EVENTS)                       
                                         
@@ -548,6 +699,7 @@ VARIABLE ITEM.COUNT
        THEN  ( LEAVE 0)                 
      ELSE 0 THEN                        
    ELSE 0 THEN  ;                       
+                                        
 ════════════════════════════════════════   SCREEN 085
 ( MENU.TEST)                            
                                         
@@ -563,6 +715,7 @@ VARIABLE ITEM.COUNT
        ."   "                           
     THEN                                
   AGAIN ;                               
+                                        
                                         
                                         
                                         
@@ -598,6 +751,7 @@ VARIABLE ITEM.COUNT
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 091
  ( FTEST)                               
                                         
@@ -607,6 +761,7 @@ VARIABLE ITEM.COUNT
       GREEN 53281 C!                    
       RED 53281 C!                      
     LOOP ;                              
+                                        
                                         
                                         
                                         
@@ -648,6 +803,7 @@ VARIABLE ROBOT.SQUARE
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 110
 (  BLOCK.)                              
                                         
@@ -673,6 +829,7 @@ CODE BLOCK. ( XT/YT/BLOCK/CWD/CHT)
   'SCREEN 8 RSHIFT # ADC, ( HI SCREEN)  
   N 7 +  STA, ( STORE HI) TXA, CLC,     
   COLOR-MEM 8 RSHIFT # ADC, ( HI COL)   
+  N 3 + STA,    ( STORE COLOR HI)       
 ════════════════════════════════════════   SCREEN 111
   ( BLOCK. CONT'D)  CLC,                
   N 4 + INC,  ( POINT TO 1ST CHAR)      
@@ -698,6 +855,7 @@ CODE BLOCK. ( XT/YT/BLOCK/CWD/CHT)
     N DEC,  ( HEIGHT COUNTER DEC)       
   0= UNTIL,                             
   XSAVE LDX, INX, INX, INX, INX,        
+POPTWO JMP,  END-CODE                   
 ════════════════════════════════════════   SCREEN 112
 ( CHECK.COVER )                         
 ASSEMBLER                               
@@ -723,6 +881,7 @@ CREATE  <CHECK.COVER>
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 113
 ( ROB.OR.SQ@)                           
                                         
@@ -736,6 +895,7 @@ CODE ROB.OR.SQ@ ( ---ORIENT/SQRE)
   0 # LDA,                              
  PUSH JMP,                              
 END-CODE                                
+                                        
                                         
                                         
                                         
@@ -773,6 +933,7 @@ END-CODE
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 120
 ( P.IN.RECT TESTER)                     
                                         
@@ -798,6 +959,7 @@ END-CODE
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 130
  ( DUMMY PROGRAM MAKER )                
  : P.STUFF ( OP/FLOW/ARG/FLOW/CH#--)    
@@ -815,6 +977,7 @@ END-CODE
  : SAVE.NEW.CW ( #---)                  
    BLANK.ALL                            
    CW.SAVE ;                            
+                                        
                                         
                                         
                                         
@@ -848,6 +1011,7 @@ END-CODE
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 132
 (  CW2)                                 
   BLANK.ALL                             
@@ -873,6 +1037,7 @@ MOVE@ RIGHT.F@ TURN.LEFT@ 0 26 P.STUFF
 MOVE@ RIGHT.F@ TURN.RIGHT@ 0 33 P.STUFF 
 MOVE@ RIGHT.F@ TURN.RIGHT@ 0 34 P.STUFF 
 GOTO.GO@ 0 0 0 35 P.STUFF               
+ 2 CW.SAVE                              
 ════════════════════════════════════════   SCREEN 133
 (  CW3)                                 
 BLANK.ALL                               
@@ -898,3 +1063,4 @@ FLIP.COIN@ RIGHT.F@ 0 UP.F@ 36 P.STUFF
 MOVE@ RIGHT.F@ TURN.LEFT@ 0 37 P.STUFF  
 MOVE@ RIGHT.F@ TURN.RIGHT@ 0 28 P.STUFF 
 MOVE@ RIGHT.F@ TURN.LEFT@ 0 38 P.STUFF  
+3 CW.SAVE                               
