@@ -23,6 +23,33 @@ DR0
                                         
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 002
+( ROBOT VARS AND CONSTS 11/4/84)        
+: VAR VARIABLE ; : IS CONSTANT ;        
+( VAR ROBOT.SQUARE)                     
+( VAR ROBOT.ORIENTATION)                
+8  IS CHIPS.WIDE@ 5 IS CHIPS.HIGH@      
+CHIPS.WIDE@ CHIPS.HIGH@ *               
+ IS CHIP.COUNT@                         
+10 CHIP.COUNT@ 2 * * IS PROG.SIZE@      
+CREATE ROBOT.PROGRAM                    
+  PROG.SIZE@ ALLOT                      
+                                        
+16 IS CHIPWIT.COUNT@                    
+VAR CURRENT.INSTRUCTION ( 0-39)         
+VAR CURRENT.PANEL   ( 0-9)              
+VAR KEY.PRESSED                         
+VAR FUEL.REG   ( 0-1400)                
+VAR RANGE.REG  ( 0-8)                   
+VAR DAMAGE.REG  ( 0-1400)               
+VAR COPY.BUFF.FULL                      
+ ( IS COPY BUFFER FULL?)                
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 003
 ( OPERATOR CONSTS, CYCLES 11/4/84)      
   1 IS GOTO'S                           
@@ -48,6 +75,7 @@ CREATE CYCLES(
 0 C, 1 C, 1 C, 1 C, 0 C, 3 C, 1 C,      
 1 C, 2 C, 4 C, 4 C, 4 C, 3 C, 3 C,      
 2 C, 2 C, 2 C, 2 C, 1 C, 1 C, 1 C,      
+1 C, 1 C, 1 C, 1 C,                     
 ════════════════════════════════════════   SCREEN 004
 ( ARG, CODE, ORIENT CONSTS FUEL( )      
 ( PROGRAM FLOW BITS)                    
@@ -72,6 +100,7 @@ CREATE FUEL(
 7 C, 2 C, 4 C, 2 C, 2 C, 1 C, 1 C,      
 1 C, 1 C, 1 C, 1 C, 1 C, 1 C, 1 C,      
 1 C, 1 C, 1 C, 1 C,                     
+                                        
                                         
 ════════════════════════════════════════   SCREEN 005
 ( ARGUMENT CONSTANTS 11/4/84)           
@@ -98,6 +127,7 @@ CREATE FUEL(
                                         
 31 IS THING.COUNT@                      
                                         
+                                        
 ════════════════════════════════════════   SCREEN 006
 ( GAMEBOARD DATA)                       
                                         
@@ -122,6 +152,7 @@ VAR THIS.ROOM@
 ( SPRITE XY FOR UPPER LEFT)             
                                         
 ( VAR WALL.COVERS  ( WALL HIDES CW?)    
+                                        
                                         
 ════════════════════════════════════════   SCREEN 007
 ( GAME DRIVER DATA)                     
@@ -148,6 +179,7 @@ VAR PROG.STATUS
  9 IS QUIT@  ( BYE)                     
  10 IS SERIES@  ( MULTI-GAME)           
                                         
+VAR LAST.MISSION                        
 ════════════════════════════════════════   SCREEN 008
 ( COLOR CONSTANTS)                      
 LT.GRAY IS AC@ ( ACT ICON BKGND)        
@@ -167,6 +199,33 @@ BLUE IS GM.BORD.COL@
                                         
                                         
 LT.GRAY IS BAK.C  ( BACK COLOR)         
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 009
+ ( FILE AND MENU STUFF)                 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         
                                         
                                         
@@ -198,6 +257,7 @@ CREATE TRIP.COUNT(
                                         
 8 IS ADVENTURE.COUNT@                   
                                         
+16 $VARIABLE CW.NAME$                   
 ════════════════════════════════════════   SCREEN 011
 ( SCENARIO.PLAY( ROOM.CT( )             
 : D, 10 * C, ;                          
@@ -223,6 +283,7 @@ CREATE SCENARIO.PLAY(
 ( PIE.CT) 03 C, 00 C, 02 C, 03 C,       
           02 C, 04 C, 00 C, 02 C,       
 CREATE ROOM.CT( 4 C, 8 C, 12 C,         
+50 C, 1 C, 1 C, 1  C, 9 C,              
 ════════════════════════════════════════   SCREEN 012
  ( COLOR.BLOCK SCREEN.ON,SPRITES.OFF)   
 : COLOR.BLOCK ( L/T/R/B/COLOR---)       
@@ -248,6 +309,7 @@ NOT AND  IF 32 ELSE 33 THEN FILL
   1 53269 C! ;                          
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 013
 ( CW.LOAD CW.SAVE BACK.WIPE )           
                                         
@@ -270,6 +332,7 @@ NOT AND  IF 32 ELSE 33 THEN FILL
   CW.FILE$                              
   ROBOT.PROGRAM DUP PROG.SIZE@ +        
   SAVE ;                                
+                                        
                                         
                                         
                                         
@@ -298,6 +361,7 @@ NOT AND  IF 32 ELSE 33 THEN FILL
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 016
 ( GET.ARG FALSE.FLOW IRND WITHIN )      
 VARIABLE RND HERE RND !                 
@@ -317,6 +381,7 @@ VARIABLE RND HERE RND !
 : GET.ARG ( ---)                        
   ROBOT.PROGRAM THIS.CHIP 2* + 1+       
   C@ ARG.BYTE C! ;                      
+                                        
                                         
                                         
                                         
@@ -348,6 +413,33 @@ GAME.STATUS @ DEBUG.ON@ = ;
   MOD DUP 0< IF DROP 7 THEN ;           
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 019
+( COUNT.BADDIES BADDY VARS)             
+                                        
+VAR CREEP.COUNT                         
+CREATE CREEPS( 12 ALLOT                 
+VAR BOUNCERS ( 0 OR 1)                  
+VAR BOUNCER.SQ                          
+VAR BOUNCER.STATE                       
+                                        
+: COUNT.BADDIES ( ---)                  
+ CREEPS( 12 0 FILL                      
+ 0 CREEP.COUNT ! 0 BOUNCERS !           
+ SQUARE.COUNT@ 0 DO                     
+  I SQUARE.OBJECT                       
+  CASE CREEP@ OF 1 CREEP.COUNT +!       
+         I CREEP.COUNT @ 1-             
+         CREEPS( + C! ;;                
+       BOUNCER@ OF                      
+         1 BOUNCERS !                   
+         I BOUNCER.SQ !  ;;             
+  ENDCASE                               
+ LOOP ;                                 
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 020
  ( PUT.OBJECTS FURNISH.ROOM)            
                                         
@@ -373,6 +465,85 @@ GAME.STATUS @ DEBUG.ON@ = ;
  DUP ADVENTURE.COUNT@ 8 * + C@          
     COFFEE@ PUT.OBJECTS                 
      ADVENTURE.COUNT@ 9 * + C@          
+    PIE@ PUT.OBJECTS ;                  
+════════════════════════════════════════   SCREEN 021
+( ROOM DATA CLEAR.ROOMS)                
+VAR ROOMS.VISITED                       
+  CREATE ROOM( 50 ALLOT ( MAX ROOMS)    
+: CLEAR.ROOMS( ROOM( 50 0 FILL          
+  0 ROOMS.VISITED ! ;                   
+: CHUCK.GOODS ( ---^ERASE GOOD THINGS)  
+ROOM.DATA( DUP SQUARE.COUNT@ + SWAP DO  
+  I C@ DUP  DISK@ = SWAP OIL@ = OR      
+    IF FLOOR@ I C! THEN                 
+LOOP ;                                  
+: GOODS.CHECK ( ROOM#---)               
+ ADVENTURE @ DUP 4 7 WITHIN SWAP 2      
+  = OR IF 1 ELSE 0 THEN  ( ERASEABLES)  
+  IF 1- DUP ROOM( + C@ NOT ( NOT VIS)   
+    IF ROOM( + 1 SWAP C!                
+      ROOMS.VISITED @ 1+ DUP            
+      TRIP.COUNT( ADVENTURE @ 1- + C@   
+      = IF DROP CLEAR.ROOMS(            
+    ELSE ROOMS.VISITED ! THEN           
+   ELSE DROP CHUCK.GOODS THEN (         
+    ( BEEN HERE)                        
+  ELSE DROP THEN ;                      
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 022
+( LOAD.ROOM )                           
+                                        
+: LOAD.ROOM ( ROOM#---)  DUP 1-         
+  SCENARIO.BUFFER@ SWAP ROOM.SIZE@ * +  
+  ROOM.DATA( ROOM.SIZE@                 
+  SWAPOUT CMOVE SWAPIN                  
+  DUP ADVENTURE @ 4 = NOT SWAP          
+  2 MOD 0= OR                           
+  IF FURNISH.ROOM THEN                  
+  COUNT.BADDIES                         
+  GOODS.CHECK ;                         
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 024
+ ( SOUNDS)                              
+ : MOVE.SOUND  ;                        
+                                        
+                                        
+ : BUMP.SOUND ;                         
+                                        
+ : ZAP.SOUND ;                          
+                                        
+ : CRUNCH ;                             
+                                        
+ : SEE.SOUND ;                          
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 027
  ( SETUP.GAME.SCREEN)                   
                                         
@@ -386,6 +557,33 @@ GAME.STATUS @ DEBUG.ON@ = ;
    6 2 D-POSITION  BLACK CHAR.COLOR     
   ADV$( ADVENTURE @ 1- 15 * + 1+        
   15 TYPE  ;                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 029
+( CLEAN.UP)                             
+                                        
+ : CLEAN.UP ( ---)                      
+   64 0 DO                              
+     I SQUARE.OBJECT                    
+     DUP DUP                            
+      WALL@ = SWAP DOOR@ = OR           
+      SWAP FLOOR@ = OR NOT              
+      IF FLOOR@ I ROOM.DATA( + C!       
+      THEN                              
+   LOOP ;                               
+                                        
+                                        
                                         
                                         
                                         
@@ -423,6 +621,33 @@ WALL@ 48 R,    WALL@ 55 R,
 WALL@ 56 R, WALL@ 57 R, WALL@ 58 R,     
 WALL@ 59 R, WALL@ 60 R, DOOR@ 61 R,     
 WALL@ 62 R, WALL@ 63 R,                 
+                                        
+════════════════════════════════════════   SCREEN 031
+( DRAW.THING )                          
+                                        
+: DRAW.THING ( SQX/SQY/OBJ#---)         
+  DUP WALL@ = IF                        
+   3 PICK 3 PICK SQUARES.WIDE@ * +      
+   DUP SQUARES.WIDE@ + SQUARE.OBJECT    
+   ( SQUARE TOWARD USER IS WALL)        
+   WALL@ =                              
+   SWAP 56 < AND  ( NOT BOTTOM ROW)     
+   NOT IF DROP  WALLS@  THEN            
+   ( LEAVE WALLSIDE TOKEN)              
+  THEN >R                               
+  2 * GAME.YT@ + SWAP 3 * GAME.XT@ +    
+  SWAP R> 4 - 7 *  OBJ.BLOCK( +  OBJ. ; 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 035
  ( BLOCK.WALL <<<<<< ERASE.ROBOT)       
                                         
@@ -448,6 +673,33 @@ WALL@ 62 R, WALL@ 63 R,
   THEN ;                                
 : ERASE.ROBOT ( ---)                    
   1 53269 C! ;                          
+                                        
+════════════════════════════════════════   SCREEN 036
+( CW.OP.MOUTH)                          
+                                        
+: CW.OP.MOUTH ( ---^OPEN CW'S MOUTH)    
+ S4 WHITE S-COLOR ROBOT.ORIENTATION @   
+ 7 * 129 + FRAME  S-POINTER ;           
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 037
 ( INIT.CW.GRAPHICS DRAW.ROBOT CW.ANIM)  
 CREATE CW.XY( 12 ALLOT ( XY ARRAY)      
@@ -473,6 +725,33 @@ CREATE CW.XY( 12 ALLOT ( XY ARRAY)
   S4 ROBOT.ORIENTATION @                
   7 * 128 + FRAME    S-POINTER          
    CW.Y @ + SWAP CW.X @ + SWAP CW.GO ;  
+ : DRAW.ROBOT ( ---)  0 0 CW.ANIM ;     
+════════════════════════════════════════   SCREEN 038
+( DRAW.GAMEBOARD)                       
+                                        
+: DRAW.GAMEBOARD ( ---)                 
+  ROOM.DATA( 1-                         
+  SQUARES.HIGH@ 0 DO                    
+   SQUARES.WIDE@ 0 DO                   
+     1+ DUP C@                          
+     I J ROT DRAW.THING                 
+   LOOP                                 
+  LOOP DROP ;                           
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 040
 ( FLASH.CW)                             
                                         
@@ -490,6 +769,137 @@ CREATE CW.XY( 12 ALLOT ( XY ARRAY)
                                         
                                         
                                         
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 041
+ ( ORIENT.XY    CW.SLIDE)               
+                                        
+ : ORIENT.XY ( ORIENTATION#---)         
+  CASE N OF 0 -2 ;; NE OF 3 -2 ;;       
+   E OF 3 0 ;;  SE OF 3 2 ;;            
+   S OF 0 2 ;;  SW OF -3 2 ;;           
+   W OF -3 0 ;; NW OF -3 -2 ;;          
+  ENDCASE ;                             
+                                        
+ : CW.SLIDE ( ---^ MOVE CW FORWARD)     
+   ROBOT.ORIENTATION @ ORIENT.XY        
+   CW.ANIM MOVE.SOUND ;                 
+                                        
+ : CW.BACK.SLIDE ( ---^CW REVERSE)      
+   ROBOT.ORIENTATION @ 4 + 8 MOD        
+   ORIENT.XY                            
+   CW.ANIM MOVE.SOUND ;                 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 042
+( NEXT.SQUARE)                          
+                                        
+                                        
+: NEXT.SQUARE ( ORIENT/SQ#--NEXT SQ#)   
+ ( WHAT IS NEXT SQUARE#?)               
+ SWAP 0 WALL.COVERS !                   
+ CASE                                   
+  N OF SQUARES.WIDE@ - ;;               
+  E OF 1+ ;;                            
+  S OF SQUARES.WIDE@ + ;;               
+  W OF 1- ;;                            
+ NE OF 7 - DUP                          
+  CHECK.COVER IF E BLOCK.WALL THEN ;;   
+ SE OF DUP 9 + SWAP                     
+  CHECK.COVER IF S BLOCK.WALL THEN ;;   
+ SW OF DUP 7 + SWAP                     
+  CHECK.COVER IF S BLOCK.WALL THEN ;;   
+ NW OF 9 - DUP                          
+  CHECK.COVER IF W BLOCK.WALL THEN ;;   
+ENDCASE ;                               
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 043
+( ADD.POINTS COUNT.CYCLES)              
+                                        
+: ADD.POINTS  ( POINTS---)              
+  0 POINTS D@ D+ DDUP POINTS D!         
+  DEBUG? IF DDROP                       
+  ELSE 2 5 D-POSITION D. THEN           
+  ;                                     
+                                        
+: COUNT.CYCLE ( CYCLES---)              
+  CYCLE.CT @ + DUP CYCLE.CT !           
+  19 5 D-POSITION                       
+  DUP 1 < IF DROP 0 GAME.FINISHED@      
+          PROG.STATUS ! THEN            
+  DEBUG? IF DROP                        
+  ELSE BLUE CHAR.COLOR ABS .  THEN ;    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 044
+( CALC.ROBOT.MOVE BOOM ?BOOM)           
+ FORTH                                  
+ : CALC.ROBOT.MOVE ( --- NEXT SQ#)      
+  ROBOT.ORIENTATION @                   
+   ARG.BYTE C@ 64 MOD CHECK.MOV.ST      
+   REVERSE@ = IF 4 + 8 MOD THEN         
+   ROBOT.SQUARE @ NEXT.SQUARE ;         
+                                        
+ VAR EXPLODED  ( {$D7}AS THERE EXPLOSION?)  
+ : BOOM ( ---^HIT A BOMB, END GAME)     
+  ;                                     
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+: ?BOOM ( OBJECT --- OBJECT)            
+ 0 EXPLODED !                           
+ DUP BOMB@ = IF BOOM THEN ;             
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 045
+( GOTO.NEXT.ROOM)                       
+                                        
+: GOTO.NEXT.ROOM ( SQ#---NEXTROOM SQ#)  
+ ERASE.ROBOT  ( FROM LAST ROOM)         
+ 0 ROBOT.SQUARE @ 0 DO                  
+   I SQUARE.OBJECT DOOR@ = IF 1+ THEN   
+ LOOP                                   
+ DUP 8 +  ( NEXT ROOM/NEXT SQ^ )        
+ ROOM.DATA( SQUARE.COUNT@ + + C@        
+ ROBOT.SQUARE !                         
+ ( GET NEXT DOOR SQ FROM AND STORE)     
+ ROOM.DATA( SQUARE.COUNT@ + + C@        
+ LOAD.ROOM                              
+ ( LOAD NEXT ROOM#)                     
+ INIT.CW.GRAPHICS                       
+ DRAW.GAMEBOARD  CW.INIT                
+ DROP CALC.ROBOT.MOVE ;                 
                                         
                                         
                                         
@@ -523,6 +933,163 @@ CREATE CW.XY( 12 ALLOT ( XY ARRAY)
 THEN ;                                  
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 047
+( BUMP)                                 
+                                        
+: BUMP ( OBJ #MOVES---OBJ)              
+  INIT.CW.GRAPHICS ( ???)               
+  ARG.BYTE C@ 64 MOD CHECK.MOV.ST       
+  FORWARD@ =                            
+  IF 0 DO CW.SLIDE LOOP                 
+  ELSE 0 DO CW.BACK.SLIDE LOOP THEN     
+  BUMP.SOUND                            
+  DUP DUP BOUNCER@ = SWAP CREEP@ = OR   
+  IF 5 FLASH.CW 50 UPDATE.DAMAGE THEN   
+  ( SHAKE THE SCREEN)                   
+  50 UPDATE.DAMAGE ;                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 048
+( MOVE)                                 
+: WT ( #---) 40 * 0 DO LOOP ;           
+: MOVE ( ---)                           
+  CALC.ROBOT.MOVE CHECK.FOR.NEXT.ROOM   
+  DUP SQUARE.OBJECT DUP FLOOR@ =        
+  SWAP DOOR@ = OR                       
+  IF   ( OK TO MOVE)                    
+    INIT.CW.GRAPHICS ( ???)             
+    ARG.BYTE C@ 64 MOD CHECK.MOV.ST     
+    FORWARD@ =                          
+    IF 8 0 DO CW.SLIDE 1 WT  LOOP       
+    ELSE 8 0 DO CW.BACK.SLIDE 1 WT LOOP 
+    THEN                                
+    ROBOT.SQUARE !                      
+  ELSE  ( HIT SOMETHING)                
+    SQUARE.OBJECT DUP WALL@ =           
+    IF 1 BUMP DROP                      
+    ELSE 5 BUMP ?BOOM DROP THEN         
+  THEN  ;                               
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 049
+ (  MOVE-ROBOT)                         
+                                        
+: MOVE.ROBOT ( ---)                     
+ ARG.BYTE C@ 64 MOD                     
+ CHECK.MOV.ST DUP MOV.EMPTY@ = NOT      
+ IF DUP FORWARD@ <                      
+   IF ( ROTATION ARG)                   
+    TURN.RIGHT@ = IF 1 ELSE -1 THEN     
+    ROBOT.ORIENTATION @ + 8 +MOD        
+    MOVE.SOUND CW.POINT MOVE.SOUND      
+   ELSE DROP MOVE                       
+   THEN                                 
+   EXPLODED @ NOT                       
+   IF DRAW.ROBOT MOVE.SOUND THEN        
+ ELSE DROP THEN ;                       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 050
+( SIGHTLINE DESTROY)                    
+                                        
+: SIGHTLINE ( SQ#--)                    
+  DROP ;                                
+                                        
+                                        
+                                        
+                                        
+ : DESTROY ( SQ#---)                    
+   DUP ROOM.DATA( + FLOOR@ SWAP C!      
+   ( PUT FLOOR IN ROOM.DATA( )          
+   DEBUG? NOT                           
+   IF SQUARE.XTYT FLOOR@ 4 - 7 *        
+     OBJ.BLOCK( + OBJ.                  
+   ELSE DROP THEN ;                     
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 051
+( ZAPPER RETRACT.ZAPPER )               
+                                        
+: ZAPPER  ( ---)  S2 OFF S-ENABLE       
+  185 S-POINTER                         
+  ROBOT.SQUARE @ SQUARE.XY              
+  31 -  ( Y UP OFFSET)                  
+  SWAP 2 - SWAP S-POSITION              
+  WHITE S-COLOR                         
+  0 S-PRIORITY 0 S-MULTI                
+  0 S-YEXP 0 S-XEXP                     
+  255 53269 FRAME C! ;                  
+                                        
+                                        
+                                        
+: RETRACT.ZAPPER ( ---)                 
+  253 53269 C! ;                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 052
+( ZAP.RAY)                              
+                                        
+: ZAP.RAY  ( TARG SQ#---)               
+  DUP ROBOT.SQUARE @ SQUARES.WIDE@ -    
+  = NOT  ( NOT UNDER HEAD)              
+  IF                                    
+    DROP  ( DRAW RAY)                   
+  ELSE DROP THEN                        
+  ;                                     
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 053
 ( EAT.IT ZAP.IT)                        
 : EAT.IT ( SQ#---)                      
@@ -548,6 +1115,7 @@ THEN ;
      0 BOUNCERS ! ;;                    
    BOMB@ OF RETRACT.ZAPPER BOOM ;;      
   ENDCASE EXPLODED @ NOT                
+  IF DESTROY ELSE DROP THEN ;           
 ════════════════════════════════════════   SCREEN 054
 ( ZAP)                                  
                                         
@@ -569,6 +1137,7 @@ THEN ;
     RETRACT.ZAPPER  ( ???)  LEAVE       
   THEN                                  
  LOOP DROP ;                            
+                                        
                                         
                                         
                                         
@@ -598,6 +1167,33 @@ THEN ;
    3 0 DO I MOVE.ARM 5  WAIT LOOP ;     
 : ARM.IN ( ---)                         
  -1 2 DO I MOVE.ARM 2  WAIT -1 +LOOP    
+ ARM.PREP ;                             
+════════════════════════════════════════   SCREEN 057
+( SING)                                 
+                                        
+: SING ( ---)                           
+       ;                                
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 058
 ( PICK.UP ACT.ON.WORLD)                 
 : PICK.UP ( ---)                        
@@ -623,6 +1219,33 @@ THEN ;
   CASE QRAY@ OF ZAP ;;                  
 SING@ OF SING ;; PICK.UP@ OF PICK.UP ;; 
 MOVE@ OF GET.ARG MOVE.ROBOT ;;          
+ENDCASE ;                               
+════════════════════════════════════════   SCREEN 059
+ ( FEEL.FOR)                            
+                                        
+ : FEEL.FOR ( OBJECT ---)               
+ ROB.OR.SQ@                             
+ NEXT.SQUARE CHECK.FOR.NEXT.ROOM        
+ ARM.PREP BLACK  S-COLOR                
+ 2 MOVE.ARM  8 WAIT                     
+ SQUARE.OBJECT ?BOOM                    
+ = NOT  ( DON'T FEEL IT)                
+ IF FALSE.FLOW THEN                     
+ S2 OFF S-ENABLE ;                      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 060
 ( LOOK.FOR)                             
 VAR SEEN                                
@@ -646,6 +1269,215 @@ VAR SEEN
  DROP 2DROP ;                           
                                         
                                         
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 061
+( SMELL.FOR DETECT.&.BRANCH )           
+                                        
+: SMELL.FOR ( OBJECT---)                
+  FALSE.FLOW  ( ASSUME FALSE)           
+  SQUARE.COUNT@ 0 DO                    
+    DUP I SQUARE.OBJECT =               
+ ( COMPARE SEARCH ITEM W SQUARE IT)     
+    IF THIS.CHIP 2* ROBOT.PROGRAM +     
+     C@ 192 AND FLOW.CODE !             
+     ( TRUE.FLOW)                       
+     LEAVE THEN                         
+  LOOP DROP ;                           
+                                        
+: DETECT.&.BRANCH ( OPCODE---)          
+ ARG.BYTE C@ 64 MOD CHECK.OBJ.ST        
+ DUP OBJ.EMPTY@ = NOT                   
+ IF SWAP                                
+  CASE FEEL.FOR@ OF FEEL.FOR ;;         
+       LOOK.FOR@ OF LOOK.FOR ;;         
+      SMELL.FOR@ OF SMELL.FOR ;;        
+  ENDCASE                               
+ ELSE 2DROP FALSE.FLOW THEN ;           
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 062
+( KEYPRESS UPDATE.KEY)                  
+                                        
+: KEYPRESS ( ---)                       
+ KEY.PRESSED @ ARG.BYTE C@ 64 MOD       
+ =  ( KEY TEST = LAST PRESSED?)         
+ IF ( RIGHT KEY)                        
+   NO.KEY@ KEY.PRESSED !                
+ ELSE FALSE.FLOW THEN ;                 
+                                        
+                                        
+: UPDATE.KEY ( ASC ---)                 
+( UPDATES AND DISPLAYS KEY PRESSED)     
+DUP 96 > ( LOWER CASE?)                 
+IF 32 - THEN                            
+DUP DUP 64 < SWAP 90 > OR               
+IF DROP NO.KEY@ 64 + THEN 64 -          
+  ( ONLY ALPHA)                         
+37 4 D-POSITION                         
+DUP NO.KEY@ = IF ." !"                  
+0 197  C!  ( RESET KBRD)                
+ELSE DUP 64 + EMIT THEN                 
+KEY.PRESSED ! ;                         
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 063
+( FLIP.COIN SPECIAL)                    
+                                        
+: FLIP.COIN ( ---)                      
+  2 IRND 0=                             
+  IF FALSE.FLOW THEN ;                  
+                                        
+: SPECIAL ( OPCODE---)                  
+ CASE FLIP.COIN@ OF FLIP.COIN ;;        
+    KEYPRESS@ OF KEYPRESS ;;            
+ ENDCASE ;                              
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 064
+( SUBPANEL BOOMERANG)                   
+                                        
+: FUDGE -1 CURRENT.INSTRUCTION !        
+  RIGHT.F@ FLOW.CODE ! ;                
+VAR RETURN^                             
+                                        
+: SUBPANEL ( ---)                       
+ CURRENT.INSTRUCTION @ RETURN^ !        
+ ARG.BYTE C@ 64 MOD                     
+ CURRENT.PANEL !                        
+ 0 CURRENT.INSTRUCTION !                
+ ;                                      
+                                        
+: BOOMERANG ( ---)                      
+ 0 CURRENT.PANEL !                      
+ RETURN^ @ CURRENT.INSTRUCTION !        
+ ROBOT.PROGRAM THIS.CHIP 2* +           
+ C@ 192 AND FLOW.CODE !                 
+  ( NEW.FLOW)                           
+ ;                                      
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 065
+( GOTO)                                 
+                                        
+: GOTO ( OP.CODE---)                    
+ GET.ARG                                
+ CASE                                   
+   GO.MARKER@ OF NO.KEY@ UPDATE.KEY     
+   28 4 D-POSITION CURRENT.PANEL @      
+   ."  " 64 + EMIT ;;                   
+   SUBPANEL@ OF SUBPANEL ;;             
+   BOOMERANG@ OF BOOMERANG ;;           
+ ENDCASE ;                              
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 066
+( CALC.NEXT.INSTRUCTION)                
+: CHIP#.  ( ---^PRINTS CHIP #)          
+  CURRENT.INSTRUCTION @                 
+  DUP 8 / 10 * SWAP 8 MOD +             
+  ."  " 32 4 D-POSITION . ." " ;        
+                                        
+: CALC.NEXT.INSTRUCTION ( ---)          
+ OP.BYTE C@ DUP GOTO.GO@ = SWAP         
+ SOCKET@ = OR IF 0 ( JUMP TO 0)         
+ ELSE                                   
+   CURRENT.INSTRUCTION @                
+   FLOW.CODE @                          
+   CASE                                 
+       UP.F@ OF CHIPS.WIDE@ - ;;        
+     DOWN.F@ OF CHIPS.WIDE@ + ;;        
+     LEFT.F@ OF 1- ;;                   
+    RIGHT.F@ OF 1+ ;;                   
+   ENDCASE                              
+ THEN                                   
+ CURRENT.INSTRUCTION !                  
+ CHIP#. ;                               
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 067
+( GROUP( )                              
+( ARRAY THAT GROUPS OPS BY FUNCTION)    
+CREATE GROUP(                           
+ GOTO'S C, GOTO'S C, GOTO'S C,          
+ GOTO'S C, GOTO'S C,                    
+                                        
+ ACT.ON.WORLD'S C,  ACT.ON.WORLD'S C,   
+ ACT.ON.WORLD'S C,  ACT.ON.WORLD'S C,   
+                                        
+ DETECT'S C, DETECT'S C, DETECT'S C,    
+                                        
+ SPECIAL'S C, SPECIAL'S C,              
+                                        
+ STACK'S C, STACK'S C, STACK'S C,       
+ STACK'S C, STACK'S C, STACK'S C,       
+ STACK'S C, STACK'S C, STACK'S C,       
+ STACK'S C,                             
+                                        
+ SOCKET'S C,                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 068
+( EXECUTE.ROBOT.INSTRUCTION)            
+                                        
+: EXECUTE.ROBOT.INSTRUCTION ( --)       
+ PROG.STATUS @ DUP GAME.ON@ =           
+ SWAP SERIES@ = OR                      
+ IF ?TERMINAL DUP                       
+  IF UPDATE.KEY ELSE DROP THEN          
+  GET.ACTION                            
+  DUP CYCLES( + C@ NEGATE COUNT.CYCLE   
+  DUP FUEL( + C@ NEGATE UPDATE.FUEL     
+  DUP GROUP( + C@  ( GET OP GROUP)      
+  CASE                                  
+    GOTO'S OF GOTO ;;                   
+    ACT.ON.WORLD'S OF ACT.ON.WORLD ;;   
+    DETECT'S OF                         
+       GET.ARG DETECT.&.BRANCH ;;       
+    SPECIAL'S OF                        
+       GET.ARG SPECIAL ;;               
+    STACK'S OF GET.ARG STACKER ;;       
+    SOCKET'S OF DROP ;;                 
+  ENDCASE                               
+  CALC.NEXT.INSTRUCTION                 
+ THEN ;                                 
                                         
                                         
 ════════════════════════════════════════   SCREEN 069
@@ -673,6 +1505,7 @@ VAR SEEN
    17 ROBOT.SQUARE !                    
    E CW.POINT                           
    PIE@ ROOM.DATA( 45 + C! THEN         
+   INIT.CW.GRAPHICS  ;                  
 ════════════════════════════════════════   SCREEN 070
  ( START.GAME STOP.GAME )               
 $CONSTANT G.ON$ "START MISSION"         
@@ -698,6 +1531,33 @@ $CONSTANT LM$ "LAST MISSION"
  : STOP.GAME ( ---)                     
    PROG.STATUS @ SERIES@ = NOT IF       
      GAME.OFF@ PROG.STATUS ! THEN ;     
+                                        
+════════════════════════════════════════   SCREEN 072
+  ( GAME)                               
+: GAME ( ---)                           
+                                        
+  BEGIN                                 
+   DO.EVENTS                            
+   MOVE.BADDIES                         
+   GAME.STATUS @ DEBUG.ON@ =            
+   IF ( SHOW.DEBUG ) THEN               
+   EXECUTE.ROBOT.INSTRUCTION            
+ ( 0 22 D-POSITION .S)                  
+  PROG.STATUS @ GAME.ON@ = NOT UNTIL    
+  UPDATE.STATS STATS.SCREEN             
+  LEAVE.GAME ;                          
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 073
  ( INIT.CHIPWITS)                       
 : INIT.CHIPWITS ( ---)                  
@@ -723,6 +1583,7 @@ $CONSTANT LM$ "LAST MISSION"
   ( NO SAVE CHIPWIT)                    
   7 OFF WORKSHOP( ITEM.ENABLE           
   ( NO PASTE PANEL) ;                   
+                                        
 ════════════════════════════════════════   SCREEN 074
 ( STAT.POINTS TOO.BAD ENDGAME SERIES)   
 : STAT.POINTS                           
@@ -748,6 +1609,33 @@ $CONSTANT LM$ "LAST MISSION"
   IF SERIES@ PROG.STATUS !              
   ( MENU STUFF)                         
   1000 0 DO DO.EVENTS LOOP THEN ;       
+                                        
+════════════════════════════════════════   SCREEN 075
+ ( CHIPWITS )                           
+                                        
+: CHIPWITS ( ---)                       
+  INIT.CHIPWITS                         
+  BEGIN 1000 IRND DROP                  
+   PROG.STATUS @                        
+    CASE GAME.OFF@ OF DO.EVENTS ;;      
+         GAME.ON@ OF GAME ;;            
+    TURN.GAME.ON@ OF START.GAME ;;      
+     ( SERIES@ OF SERIES ;; )           
+   TURN.GAME.OFF@ OF STOP.GAME ;;       
+    GAME.ABORTED@ OF TOO.BAD ;;         
+    GAME.FINISHED@ OF ENDGAME ;;        
+     WORKSHOP.ON@ OF WORKSHOP ;;        
+     WORKSHOP.OFF@ OF  W.LEAVE          
+       GAME.ON@ PROG.STATUS !           
+       START.GAME                       
+       STOP.GAME ;;                     
+    ENDCASE                             
+  AGAIN ;                               
+                                        
+                                        
+                                        
+                                        
+ EXIT                                   
 ════════════════════════════════════════   SCREEN 078
 ( ARM.PT()                              
                                         
@@ -769,6 +1657,85 @@ CREATE ARM.PT(  ( REL XY OF ARM ROOT)
   2 3 BLOCK. ;                          
 : ARG.   ( X/Y/BLOCK---)                
   2 2 BLOCK. ;                          
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 079
+ ( OBJECT ARRAY BUILDER )               
+ VAR CHAR.PT                            
+ 58  CONSTANT START.OBJ                 
+: OBJ(, ( COLOR / OBJ# ---)             
+  6 * START.OBJ + DUP CHAR.PT !         
+  256 MOD   >R   ( STARTCHAR)           
+  C,   R@ C, R@ 1+ C, R@ 2+ C,          
+  R@ 3 + C, R@ 4 + C, R> 5 + C, ;       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 080
+ ( OBJ.BLOCK(  )                        
+                                        
+ CREATE OBJ.BLOCK(                      
+   YELLOW 8 +  0 OBJ(,  ( PIE)          
+   GREEN  8 +  1 OBJ(, ( COFFEE)        
+   BLUE   8 +  2 OBJ(, ( DISK)          
+   BLUE   8 +  3 OBJ(, ( OIL)           
+   WHITE  8 +  4 OBJ(, ( FLOOR)         
+   RED    8 +  5 OBJ(, ( BOMB)          
+   RED    8 +  6 OBJ(, ( BOUNCER1)      
+   PURPLE 8 +  9 OBJ(, ( CREEP1)        
+   WHITE  8 + 13 OBJ(, ( WALLTOP)       
+   11         15 OBJ(, ( DOOR)          
+   WHITE  8 + 14 OBJ(, ( WALLSIDE)      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 081
+ ( BOUNCER.BLOCK(  CREEP.BLOCK(  )      
+                                        
+ CREATE BOUNCER.BLOCK(                  
+ RED  8 +  6 OBJ(,  ( B1)               
+ RED  8 +  7 OBJ(,  ( B2)               
+ RED  8 +  8 OBJ(,  ( B3)               
+                                        
+                                        
+ CREATE CREEP.BLOCK(                    
+ PURPLE  8 +  9 OBJ(,  ( C1)            
+ PURPLE  8 + 10 OBJ(,  ( C2)            
+ PURPLE  8 + 11 OBJ(,  ( C3)            
+ PURPLE  8 + 12 OBJ(,  ( C4)            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         
                                         
                                         
@@ -798,6 +1765,7 @@ CREATE ARM.PT(  ( REL XY OF ARM ROOT)
                                         
                                         
                                         
+     OFF GAME.CHAR? ! THEN ;            
 ════════════════════════════════════════   SCREEN 083
 ( CW.INIT  CW.POINT <<<<<<<)            
                                         
@@ -816,6 +1784,7 @@ CREATE ARM.PT(  ( REL XY OF ARM ROOT)
   FRAME P( 'SCREEN 1018 + 6 CMOVE       
   ROBOT.ORIENTATION ! ( STORE NEW)      
   ;                                     
+                                        
                                         
                                         
                                         
@@ -848,6 +1817,33 @@ CREATE ARM.PT(  ( REL XY OF ARM ROOT)
     0 0 10 P.STUFF                      
    GOTO.GO@ 0 0 0 18 P.STUFF            
   FORGET P.STUFF                        
+                                        
+════════════════════════════════════════   SCREEN 086
+( *** WORKSHOP DATA ****)               
+VAR HOT.CHIP                            
+VAR WS.OP.BYTE                          
+VAR WS.ARG.BYTE                         
+VAR WS.TRUE.FLOW                        
+VAR WS.FALSE.FLOW                       
+VAR PULLER.COM                          
+VAR INSERTER.COM                        
+VAR GARBAGE.COM                         
+VAR WIRE.SELECTED ( 0=NONE 1=T 2=F)     
+VAR NEW.CW    ( NEW CW LOADED?)         
+62 IS NONE@   ( NO CHIP TOKEN)          
+9999 IS NO.CHIP@                        
+                                        
+VAR CURSOR.COUNT                        
+2 IS CURSOR.RATE@                       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 087
 ( WIRE DATA)                            
  138 IS SINGLE.WIRE@                    
@@ -872,6 +1868,59 @@ CREATE ARM.PT(  ( REL XY OF ARM ROOT)
 : @XY  ( RECTADR ---XL/YT)              
   DUP C@ SWAP 2 + C@ ;                  
 1 25 4 24 PANEL.RECT !RECT              
+                                        
+                                        
+════════════════════════════════════════   SCREEN 088
+ ( DEBUG.SCREEN <<<<<<)                 
+                                        
+ : DEBUG.SCREEN  ( ---)                 
+  ( THIS TOGGLES WITH GAME SCREEN)      
+ ;                                      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 089
+( OP.BLOCK( )                           
+: #, 1 SWAP DO I  ROLL C, -1 +LOOP  ;   
+  CREATE OP.BLOCK(                      
+( GO)  VC@ 58 59 60 61 62 63 7 #,       
+( LOOP) VC@ 64 65 66 67 68 69 7 #,      
+( SUBP) VC@ 70 71 72 73 32 32 7 #,      
+( BMR) VC@ 74 75 76 77 78 79 7 #,       
+( WIRE) VC@ 80 81 82 83 84 85 7 #,      
+( MOV) MC@ 86 87 32 32 32 32 7 #,       
+( PICK) VC@ 88 89 90 91 92 93 7 #,      
+( ZAP) VC@ 94 95 96 97 98 99 7 #,       
+( SNG) NC@ 100 101 32 32 32 32 7 #,     
+( FL) OC@ 102 103 32 32 32 32 7 #,      
+( LK) OC@ 104 105 32 32 32 32 7 #,      
+( SM) OC@ 106 107 32 32 32 32 7 #,      
+( F) VC@ 108 109 110 111 112 113 7 #,   
+( KE) VC@ 114 115 116 117 32 32 7 #,    
+( N=) NC@ 118 119 32 32 32 32 7 #,      
+( N<) NC@ 118 122 32 32 32 32 7 #,      
+( O=) OC@ 120 119 32 32 32 32 7 #,      
+( M=) MC@ 121 119 32 32 32 32 7 #,      
+                                        
+                                        
+                                        
                                         
 ════════════════════════════════════════   SCREEN 090
 ( OP.BLOCK( CONT'D   ARG.BLOCK( )       
@@ -898,6 +1947,7 @@ CREATE ARG.BLOCK(
 ( BM) OC@ 190 191 192 193 5 #,          
 ( BN) OC@ 194 195 196 197 5 #,          
 ( CR) OC@ 198 199 200 201 5 #,          
+                                        
 ════════════════════════════════════════   SCREEN 091
  ( ARG.BLOCK( CONT'D)                   
                                         
@@ -922,6 +1972,7 @@ CREATE ARG.BLOCK(
 ( N5) NC@ 250 251 246 247 5 #,          
 ( N6) NC@ 252 253 246 247 5 #,          
 ( N7) NC@ 254 255 246 247 5 #,          
+                                        
                                         
 ════════════════════════════════════════   SCREEN 092
 ( ACTION.TYPE( )                        
@@ -948,6 +1999,33 @@ CREATE ACTION.TYPE( ACTION.COUNT@ ALLOT
 24 -@ AT                                
                                         
 FORGET AT                               
+                                        
+════════════════════════════════════════   SCREEN 093
+( OK.ACTIONS(  DOUBLE.SIZED?)           
+                                        
+CREATE OK.ACTIONS( ACTION.COUNT@ ALLOT  
+: ACTION.OK?  ( TOKEN ---FLAG)          
+  OK.ACTIONS( + C@ ;                    
+                                        
+: NOT.OK ( ACT.TOKEN--)                 
+  OK.ACTIONS( + 0 SWAP C! ;             
+                                        
+: OK  ( TOK---)                         
+  OK.ACTIONS( + 1 SWAP C! ;             
+                                        
+: DOUBLE.SIZED?  ( OP TOKEN---FLAG)     
+  DUP ACTION.TYPE( + C@ -@ =            
+  SWAP SUBPANEL@ = OR ;                 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 094
 ( OP.W.XY(  ARG.W.XY(  <<<)             
                                         
@@ -972,6 +2050,7 @@ CREATE ARG.W.XY( THING.COUNT@ 4 * ALLOT
                                         
 : PF ( X/X/Y/Y/OPTOK---)                
   OP.W.XY( ARFILL ;                     
+                                        
                                         
 ════════════════════════════════════════   SCREEN 095
  ( OP WORK XY ASSIGNMENTS <<<)          
@@ -998,6 +2077,7 @@ BOOMERANG@ 34 35 14 16 FLIP.COIN@
 FORGET PF                               
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 096
 ( SUBP.WD.RECT( <<<<<<)                 
                                         
@@ -1019,6 +2099,33 @@ CREATE SUBP.WS.RECT( 9 4 * ALLOT
                                         
  ( LETTER SITS IN UPPER LEFT OF)        
  ( 4 CHAR SENSITIVE SQUARE.)            
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 097
+( T.FILL TS.FILL TE.FILL <<<)           
+: T.FILL ( ---)                         
+  BLANK.THING.RECTS                     
+  27 28 19 20 PIE@ AF                   
+  29 30 19 20 COFFEE@ AF                
+  31 32 19 20 CREEP@ AF                 
+  33 34 19 20 BOMB@ AF                  
+  35 36 19 20 BOUNCER@ AF               
+  27 28 22 23 OIL@ AF                   
+  29 30 22 23 DISK@ AF                  
+  31 32 22 23 WALL@ AF                  
+  33 34 22 23 DOOR@ AF                  
+  35 36 22 23 FLOOR@ AF ;               
+                                        
+: TS.FILL ( ---)                        
+  T.FILL 37 38 20 21 OBJ.STACK@ AF ;    
+                                        
+: TE.FILL ( ---)                        
+  T.FILL 37 38 21 21 OBJ.EMPTY@ AF ;    
+                                        
+                                        
                                         
                                         
                                         
@@ -1048,6 +2155,7 @@ CREATE SUBP.WS.RECT( 9 4 * ALLOT
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 099
 ( N.FILL NE.FILL S.FILL <<<<<)          
                                         
@@ -1073,6 +2181,33 @@ CREATE SUBP.WS.RECT( 9 4 * ALLOT
                                         
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 100
+ ( CEMIT DRAW.ACTION  DRAW.LETTER<<< )  
+                                        
+: CEMIT  ( X/Y/COLOR/SCREENCODE)        
+  >R >R 40 * +                          
+  R> OVER COLOR-MEM + C!                
+  'SCREEN + R> SWAP C! ;                
+                                        
+: DRAW.ACTION ( TOK/X/Y--TOK/X/Y )      
+  2DUP  5 PICK 7 * OP.BLOCK( +          
+  OP. ;                                 
+                                        
+                                        
+: DRAW.LETTER  ( X/Y/ASC---)            
+  BLACK CHAR.COLOR                      
+  >R D-POSITION R>                      
+  DUP 64 - 27 = IF                      
+   ." !" DROP ELSE EMIT THEN ;          
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 101
 ( DRAW.A.THING   O.D.)                  
                                         
@@ -1093,6 +2228,33 @@ CREATE SUBP.WS.RECT( 9 4 * ALLOT
 : O.D.   ( X/Y/ARG---)                  
   ( OBJECT DRAW)                        
   5 * ARG.BLOCK( + ARG. ;               
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 102
+( INVERT.CHIP<<<<<<< WIRE.XY)           
+                                        
+: INVERT.CHIP ( CHIP#---)               
+ DROP ;                                 
+                                        
+VAR WIRE.OFF ( CHAR OFFSET OF FLOW)     
+: WIRE.XY ( CHIP X/Y--WIRE X/Y)         
+  FLOW.CODE @ DUP 64 / WIRE.OFF !       
+  CASE UP.F@ OF 1- SWAP 1+ SWAP ;;      
+    DOWN.F@ OF 3 + ;;                   
+    LEFT.F@ OF SWAP 1- SWAP ;;          
+   RIGHT.F@ OF 2 + SWAP 2 + SWAP ;;     
+  ENDCASE ;                             
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
                                         
                                         
                                         
@@ -1123,6 +2285,33 @@ CREATE SUBP.WS.RECT( 9 4 * ALLOT
      WIRE.IT                            
    ELSE WIRE.IT THEN                    
 ELSE DROP THEN  DROP DROP ;             
+                                        
+════════════════════════════════════════   SCREEN 104
+ ( CHIP.DRAW)                           
+                                        
+ : CHIP.DRAW  ( CHIP#--)                
+   DUP CHIPS.WIDE@ MOD 3 * 2+ ( X)      
+   SWAP CHIPS.WIDE@ / 4 * 4 + ( Y)      
+   GET.ACTION ROT ROT                   
+   DRAW.ACTION                          
+   GET.ARG DRAW.A.THING                 
+   DRAW.WIRE    ;                       
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 105
  ( NEW.WS PANEL.DRAW )                  
                                         
@@ -1143,6 +2332,33 @@ ELSE DROP THEN  DROP DROP ;
      I CHIP.DRAW                        
    LOOP                                 
    HOT.CHIP @ CURRENT.INSTRUCTION ! ;   
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 108
+( SETUP.LEGAL.ARGS)                     
+                                        
+: SETUP.LEGAL.ARGS ( TYPE---)           
+  CASE                                  
+   T@ OF T.FILL ;;                      
+   TE@ OF TE.FILL ;;                    
+   TS@ OF TS.FILL ;;                    
+   M@ OF M.FILL ;;                      
+   ME@ OF ME.FILL ;;                    
+   MS@ OF MS.FILL ;;                    
+   N@ OF N.FILL ;;                      
+   NE@ OF NE.FILL ;;                    
+   S@ OF S.FILL ;;                      
+   ST@ OF ST.FILL ;;                    
+  ENDCASE ;                             
+                                        
+                                        
+                                        
+                                        
+                                        
                                         
                                         
                                         
@@ -1173,6 +2389,7 @@ ELSE DROP THEN  DROP DROP ;
    LOOP                                 
   THEN ;                                
 EXIT                                    
+                                        
 ════════════════════════════════════════   SCREEN 113
 ( WIRE.OK?  ERASE.BLANK.W.. BUT.XY@)    
                                         
@@ -1196,6 +2413,7 @@ ENDCASE ;
   2DUP SWAP 1 - SWAP BLIP   ( LEFT)     
   SWAP 2 + SWAP 2 +  BLIP ( RT)         
   ;                                     
+                                        
                                         
                                         
 ════════════════════════════════════════   SCREEN 114
@@ -1223,6 +2441,7 @@ RIGHT.F@ WIRE.OK? IF RIGHT.F@ BL.WR THEN
  ;                                      
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 115
  ( UPDATE.WS.CHIP PANEL.HILIGHT)        
  : UPDATE.WS.CHIP ( ---)                
@@ -1248,6 +2467,33 @@ RIGHT.F@ WIRE.OK? IF RIGHT.F@ BL.WR THEN
     IF DK.GRAY CHAR.COLOR THEN          
     I 65 - 2* 6 + 2 D-POSITION          
     I EMIT MED.GRAY CHAR.COLOR          
+  LOOP ;                                
+════════════════════════════════════════   SCREEN 116
+ ( GARBAGE.PANEL,WS.CHIP UPDATE.WS.C..) 
+                                        
+ : GARBAGE.PANEL.CHIP ( ---)            
+   HOT.CHIP @ CURRENT.INSTRUCTION !     
+   SOCKET@ 0 !CHIP BLANK.WS.CHIP        
+   UPDATE.WS.CHIP ;                     
+                                        
+ : GARBAGE.WS.CHIP ( ---)               
+   NONE@ WS.ARG.BYTE C!                 
+   0 WS.TRUE.FLOW C! 0 WS.FALSE.FLOW C! 
+   NONE@ WS.OP.BYTE C!                  
+   0 WIRE.SELECTED !                    
+   0 THIS.ACT.TYPE ! ;                  
+                                        
+ : UPDATE.WS.COMMANDS ( ---)            
+ ( IS CHIP READY TO BE INSERTED?)       
+ 0 INSERTER.COM !                       
+ WS.ARG.BYTE C@ NONE@ = NOT             
+   ( CHIP IS FINISHED)                  
+ THIS.ACT.TYPE @ -@ = OR                
+   ( UNARY CHIP FINISHED)               
+ IF 1 INSERTER.COM ! THEN ;             
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 117
 ( PANEL.CHIP>WS WS>PANEL.CHIP WS>ARG)   
                                         
@@ -1273,6 +2519,7 @@ RIGHT.F@ WIRE.OK? IF RIGHT.F@ BL.WR THEN
    WS.TRUE.FLOW C@ DUP FLOW.CODE C!     
    WS.OP.BYTE C@ + OP.BYTE C!           
    WS.FALSE.FLOW C@ WS.ARG.BYTE C@ +    
+   ARG.BYTE C! ;                        
 ════════════════════════════════════════   SCREEN 118
 ( WIRE.PROG LEGAL.WIRE TEST.LEGAL.WIRE) 
  VAR LAST.TRUE VAR LAST.FALSE           
@@ -1298,6 +2545,111 @@ RIGHT.F@ WIRE.OK? IF RIGHT.F@ BL.WR THEN
    NONE@ = SWAP GOTO.GO@ = OR SWAP      
    BOOMERANG@ = OR LAST.TRUE @          
    LAST.FALSE @ = OR                    
+   IF LEGAL.WIRE THEN ;                 
+════════════════════════════════════════   SCREEN 119
+( KEYPRESS,SUBPANEL.THING.ICONS)        
+                                        
+ : KEYPRESS.THING.ICONS                 
+  26 18 39 24 LT.GRAY COLOR.BLOCK       
+  65   ( A) BLACK CHAR.COLOR            
+  24 19 DO ( VERT LOOP)                 
+   38 29 DO  ( HORIZ)                   
+   I J D-POSITION DUP EMIT 1+           
+  LOOP 2 +LOOP DROP ." {$9D}!" ;            
+                                        
+ : SUBPANEL.THING.ICONS ( ---)          
+  BLACK CHAR.COLOR                      
+  26 18 39 24 LT.GRAY COLOR.BLOCK       
+   9 0 DO                               
+     SUBP.WS.RECT( I 4 * +              
+     @XY D-POSITION                     
+     66 I + EMIT                        
+  LOOP  ;                               
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 120
+( INSERT.IT <<<<)                       
+                                        
+: INSERT.IT ( ---)                      
+  HOT.CHIP @ CURRENT.INSTRUCTION !      
+  INSERTER.COM @                        
+  IF WS>PANEL.CHIP                      
+  ZERO.STATS                            
+  ELSE GARBAGE.WS.CHIP  THEN            
+  ERASE.BLANK.WIRES                     
+  HOT.CHIP @ CHIP.DRAW                  
+  UPDATE.WS.COMMANDS ;                  
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 121
+( CALC.BLANK.WIRES)                     
+                                        
+: CALC.BLANK.WIRES  ( ---)              
+   WS.CHIP.RECT @RECT                   
+   DROP SWAP DROP  ( XL/YT)             
+   UP.F@ WIRE.OK?                       
+   IF OVER DUP 2 + 3 PICK 1- DUP        
+   ELSE 40 40 40 40 THEN                
+   UP.WS !RECT                          
+   DOWN.F@ WIRE.OK?                     
+   IF OVER 1- DUP 2 + 3 PICK 3 + DUP    
+   ELSE 40 40 40 40 THEN                
+   DOWN.WS !RECT                        
+   LEFT.F@ WIRE.OK?                     
+   IF OVER 1- DUP 3 PICK 1- DUP 3 +     
+   ELSE 40 40 40 40 THEN                
+   LEFT.WS !RECT                        
+   RIGHT.F@ WIRE.OK?                    
+   IF OVER 2 + DUP 3 PICK DUP 3 +       
+   ELSE 40 40 40 40 THEN                
+   RIGHT.WS !RECT                       
+   2DROP ;                              
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 122
+( PULL.IT )                             
+                                        
+: PULL.IT ( ---)                        
+   HOT.CHIP @ CURRENT.INSTRUCTION !     
+   PANEL.CHIP>WS                        
+   UPDATE.WS.COMMANDS                   
+   CALC.BLANK.WIRES                     
+   WS>ARG,OP                            
+   UPDATE.WS.CHIP                       
+   WS.OP.BYTE C@ SUBPANEL@ =            
+   IF SUBPANEL.THING.ICONS              
+   ELSE WS.OP.BYTE C@ KEYPRESS@ =       
+    IF  KEYPRESS.THING.ICONS            
+    ELSE WS.OP.BYTE C@                  
+     DUP NONE@ =  ( NO LEGAL ARGS)      
+     IF DROP -@ ELSE ACTION.TYPE( + C@  
+     THEN WS.THING.ICONS                
+   THEN THEN ;                          
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 123
  ( MATCH.WIRE? SELECT.WIRE)             
                                         
@@ -1323,6 +2675,33 @@ RIGHT.F@ WIRE.OK? IF RIGHT.F@ BL.WR THEN
     ELSE FALSE.WIRE@ WIRE.TYPE ! THEN   
   THEN WS.CHIP.RECT @XY WIRE.XY WIRE.IT 
   ' WS.BACK.COL@ !                      
+ ELSE DROP THEN ;                       
+════════════════════════════════════════   SCREEN 124
+( MOVE.WIRE?)                           
+                                        
+: MOVE.WIRE? ( FLOW.CODE---) DUP        
+  MATCH.WIRE? DUP 0>   ( WIRE THERE)    
+  IF WIRE.SELECTED @ = NOT ( SAME)      
+   IF WS.FALSE.FLOW C@ WS.TRUE.FLOW C@  
+    WS.FALSE.FLOW C! WS.TRUE.FLOW C!    
+      ( SWAP EM)                        
+    0 WIRE.SELECTED ! WS>ARG,OP DROP    
+    BLANK.WS.CHIP UPDATE.WS.CHIP        
+   ELSE DROP THEN  ( SAME ONE)          
+  ELSE DROP ( NO WIRE THERE)            
+   WIRE.SELECTED @ 1 =                  
+   IF WS.TRUE.FLOW C!                   
+   ELSE WS.FALSE.FLOW C! THEN           
+   0 WIRE.SELECTED !                    
+   WS>ARG,OP BLANK.WS.CHIP              
+   UPDATE.WS.CHIP                       
+  THEN                                  
+  WS.TRUE.FLOW C@ LAST.TRUE !           
+  WS.FALSE.FLOW C@ LAST.FALSE ! ;       
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 125
 EXIT                                    
                                         
@@ -1344,6 +2723,33 @@ EXIT
                                         
                                         
                                         
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 126
+ ( CURSOR.CHIP NEW.CHIP.HOT)            
+                                        
+ : CURSOR.CHIP ( CHIP#---)              
+   S2 ON S-ENABLE                       
+   DUP 8 MOD 24 * 36 +  ( X)            
+   SWAP 8 / 32 * 78 +   ( Y)            
+   2DUP FRAME S-POSITION                
+   46 - 8 /             ( YTAB )        
+   SWAP 20 - 8 / SWAP   ( XTAB)         
+   2DUP OVER 1+ SWAP DUP 2+             
+   WS.CHIP.RECT !RECT                   
+   SWAP 1 - SWAP 1 - OVER 3 + SWAP      
+   DUP 4 + WS.WIRE.RECT !RECT ;         
+                                        
+ : NEW.CHIP.HOT ( CHIP#---)             
+   DUP 0= NOT                           
+   IF DUP HOT.CHIP !                    
+      DUP CURRENT.INSTRUCTION !         
+      CURSOR.CHIP                       
+      GET.ACTION DROP PULL.IT           
+   ELSE DROP THEN ;                     
                                         
                                         
                                         
@@ -1373,6 +2779,7 @@ VAR DRAG.CHIP^
   ( DRAGGED OFF PANEL)                  
   0 24 D-POSITION ." DRAG.CHIP "        
   DRAG.CHIP^ ? ;                        
+                                        
 ════════════════════════════════════════   SCREEN 128
  ( PANEL.HANDLER)                       
 : PANEL.HANDLER ( ---) ( SOUND)         
@@ -1398,6 +2805,7 @@ VAR DRAG.CHIP^
     IF ( GARBAGE.WS.CHIP                
       GARBAGE.PANEL.CHIP ERASE.WS.CHIP  
       ERASE.BLANK.WIRES ) THEN          
+ THEN UPDATE.WS.COMMANDS ;              
 ════════════════════════════════════════   SCREEN 129
 ( WS.WIRE.HANDLER)                      
  : WS.WIRE.HANDLER ( ---)               
@@ -1423,6 +2831,7 @@ VAR DRAG.CHIP^
          THEN LEAVE                     
        THEN THEN                        
      LOOP R> FLOW.CODE !                
+   THEN THEN ;                          
 ════════════════════════════════════════   SCREEN 130
  ( PANEL.SELECT.HANDLER)                
                                         
@@ -1438,6 +2847,7 @@ VAR DRAG.CHIP^
                                         
    PANEL.DRAW   PANEL.HILIGHT           
    WS.ACTION.ICONS ;                    
+                                        
                                         
                                         
                                         
@@ -1473,6 +2883,7 @@ VAR DRAG.CHIP^
    -@ OF WS.THING.ICONS ;;              
      ENDCASE THEN                       
    THEN THEN                            
+ LOOP ;                                 
 ════════════════════════════════════════   SCREEN 132
 ( SUBP.HANDLER,KEY.HANDLER)             
                                         
@@ -1498,6 +2909,7 @@ VAR DRAG.CHIP^
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 133
 ( THING.HANDLER)                        
                                         
@@ -1517,6 +2929,7 @@ VAR DRAG.CHIP^
     THEN                                
    LOOP THEN                            
   THEN ;                                
+                                        
                                         
                                         
                                         
@@ -1548,6 +2961,7 @@ THEN
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 135
  ( SETUP.WORK.SCREEN INIT.WS)           
                                         
@@ -1571,6 +2985,7 @@ THEN
   0 GARBAGE.COM !                       
   39 NEW.CHIP.HOT                       
   ;                                     
+                                        
                                         
                                         
 ════════════════════════════════════════   SCREEN 136
@@ -1598,6 +3013,33 @@ THEN
    IF INSERT.IT THEN                    
   1 W.ON$ WORKSHOP$ WORKSHOP( SET.ITEM$ 
   3 OFF WORKSHOP( ITEM.ENABLE           
+12 4 DO I ON GAMES( ITEM.ENABLE LOOP ;  
+════════════════════════════════════════   SCREEN 137
+ ( **** WORKSHOP ****)                  
+                                        
+: WORKSHOP  ( ---)  W.ENTER             
+  BEGIN  DO.EVENTS                      
+   BUTTON.DOWN @ IF WS.MOUSER THEN      
+  NEW.CW @                              
+  IF INIT.WS                            
+    CURRENT.PANEL @ PANEL.DRAW          
+    ( WS.ACTION.ICONS )                 
+    PANEL.HILIGHT                       
+    0 NEW.CW !  THEN                    
+    PROG.STATUS @ WORKSHOP.ON@ =        
+                                        
+  NOT UNTIL                             
+  SCREEN.OFF                            
+  W.LEAVE   ;                           
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 138
 ( DRAW.RND.CRP TO.CW)                   
                                         
@@ -1620,6 +3062,7 @@ THEN
    ELSE SQUARES.WIDE@ NEGATE THEN       
   THEN 2 IRND 0= IF DROP 0 THEN         
   + + ;                                 
+                                        
                                         
                                         
                                         
@@ -1648,6 +3091,7 @@ THEN
  ELSE SWAP DROP                         
  THEN DRAW.RND.CRP ;                    
                                         
+                                        
 ════════════════════════════════════════   SCREEN 140
  ( SPIN.BOUNCER <<<<)                   
                                         
@@ -1673,6 +3117,33 @@ THEN
                                         
                                         
                                         
+                                        
+════════════════════════════════════════   SCREEN 141
+( MOVE.BADDIES)                         
+                                        
+ : MOVE.BADDIES ( ---)                  
+   12 IRND DUP CREEPS( + C@             
+   55 MIN  ( NO GARBAGE #'S)            
+         ( CREEP#/CREEP SQ#)            
+   DUP SQUARE.OBJECT CREEP@ =           
+     ( CREEP IS STILL THERE)            
+   IF CREEP.MOVE                        
+   ELSE 2DROP                           
+   THEN                                 
+   BOUNCERS @                           
+   IF                                   
+     BOUNCER.STATE @ SPIN.BOUNCER THEN ;
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 143
 ( REC.LAST READ.LAST)                   
                                         
@@ -1686,6 +3157,33 @@ THEN
                                         
 : READ.LAST  ( ---)                     
  ADVENTURE " AD" LOADRAM ;              
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 144
+ ( BYE.BYE    OPTION.MENU)              
+                                        
+ : BYE.BYE ( --)                        
+   ;                                    
+                                        
+                                        
+                                        
+ : OPTION.MENU ( ---)                   
+   THIS.ITEM @                          
+   CASE                                 
+     1 OF ( DEBUG ON)  ;;               
+     2 OF BYE.BYE ;;                    
+   ENDCASE ;                            
                                         
                                         
                                         
@@ -1723,6 +3221,33 @@ CREATE COPY.BUFF( CHIP.COUNT@ 2 * ALLOT
   R> DUP CHIP.COUNT@ 2 * + SWAP DO      
    I C@ 64 MOD OVER = IF SOCKET@ I C!   
    THEN 2 +LOOP DROP                    
+  PANEL.DRAW ( ZERO.STATS) ;            
+════════════════════════════════════════   SCREEN 146
+( WS.MENU)                              
+                                        
+                                        
+: WS.MENU  ( ---)                       
+  THIS.ITEM @                           
+  CASE                                  
+     1 OF PROG.STATUS @ WORKSHOP.ON@ =  
+         IF WORKSHOP.OFF@               
+         ELSE WORKSHOP.ON@ THEN         
+         PROG.STATUS ! ;;               
+     3 OF HOT.CHIP @ NO.CHIP@ =         
+       NOT IF INSERT.IT THEN            
+       CW.NUM @ CW.SAVE                 
+     ( EDIT.NAME SET.MENU.NAMES)        
+       1 NEW.CW ! ;;                    
+     5 OF COPY.PANEL CLEAR.PANEL ;;     
+     6 OF COPY.PANEL ;;                 
+     7 OF PASTE.PANEL ;;                
+     8 OF CLEAR.PANEL ;;                
+   ENDCASE ;                            
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 147
 ( WH.MENU)                              
 : WH.MENU  SPRITES.OFF                  
@@ -1748,6 +3273,7 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
    8 OF " A8" ;; ENDCASE LOADRAM        
    SWAPOUT FIRST 53248 4096 CMOVE       
    SWAPIN  REC.LAST                     
+   FIRST " CW.SCR" LOADRAM ;            
 ════════════════════════════════════════   SCREEN 148
 ( ADVENTURE.MENU)                       
 : ADVENTURE.MENU                        
@@ -1773,6 +3299,137 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
        SERIES@ PROG.STATUS !            
    ENDCASE ;;                           
   3 - AD.M                              
+ENDCASE ;                               
+════════════════════════════════════════   SCREEN 149
+( DO.EVENTS)                            
+                                        
+ : DO.EVENTS ( ---)                     
+   DO.MENU.EVENTS                       
+   IF THIS.MENU @                       
+     CASE                               
+       1 OF WH.MENU ;;                  
+       2 OF WS.MENU ;;                  
+       3 OF ADVENTURE.MENU ;;           
+       4 OF OPTION.MENU ;;              
+     ENDCASE                            
+   THEN                                 
+   ;                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 150
+( STACK & REG STUFF)                    
+                                        
+                                        
+                                        
+256 IS STACK.LEN@                       
+                                        
+CREATE MOV.ST( 256 ALLOT                
+CREATE NUM.ST( 256 ALLOT                
+CREATE OBJ.ST( 256 ALLOT                
+                                        
+VAR MOV.ST^                             
+VAR NUM.ST^                             
+VAR OBJ.ST^                             
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 151
+( CHECK.MOV,OBJ,NUM.ST)                 
+                                        
+: CHECK.MOV.ST ( ARG---ARG)             
+ ( IF ARG IS MOVE STACK RETURN MOVE)    
+ DUP MOV.STACK@ = IF DROP               
+   MOV.ST( MOV.ST^ @ + C@ THEN ;        
+                                        
+: CHECK.OBJ.ST ( ARG--ARG)              
+ DUP OBJ.STACK@ = IF DROP               
+   OBJ.ST( OBJ.ST^ @ + C@ THEN ;        
+                                        
+: CHECK.NUM.ST ( ARG--ARG)              
+ DUP CASE                               
+  NUM.STACK@ OF DROP                    
+     NUM.ST( NUM.ST^ @ + C@ ;;          
+  DAMAGE.REG@ OF DROP DAMAGE.REG @      
+     200 / NUM0@ + ;;                   
+  FUEL.REG@ OF DROP FUEL.REG @          
+    1000 / 1+ NUM0@ + ;;                
+  RANGE.REG@ OF DROP RANGE.REG @        
+    NUM0@ + ;;                          
+ ( ELSE IT'S A NUMBER)                  
+ENDCASE ;                               
+                                        
+                                        
+════════════════════════════════════════   SCREEN 152
+ ( UPDATE.FUEL,DAMAGE)                  
+                                        
+ : NUM.PLOP  ( NUMBER/X/Y---)           
+  ( DRAWS NUMBER BEAKER)  ROT           
+  NUM0@ + 5 * ( INDEX INTO ARG.BLOCK( ) 
+  ARG.BLOCK( + ARG. ;                   
+                                        
+ : UPDATE.FUEL ( FUEL PTS---)           
+ FUEL.REG @ + 6999 MIN DUP FUEL.REG !   
+ DUP 1 < IF GAME.ABORTED@ PROG.STATUS ! 
+            DROP 0                      
+         ELSE 1000 / 1+ THEN            
+ 32 9  NUM.PLOP ;                       
+                                        
+ : UPDATE.DAMAGE ( DAMAGE.PTS---)       
+   DAMAGE.REG @ + DUP DAMAGE.REG !      
+   DUP 1399 >                           
+   IF GAME.ABORTED@ PROG.STATUS !       
+      DROP 7                            
+   ELSE 200 / THEN                      
+   28 9  NUM.PLOP ;                     
+                                        
+                                        
+                                        
+                                        
+════════════════════════════════════════   SCREEN 153
+( UPDATE.RANGE ST.SQUASH)               
+                                        
+: UPDATE.RANGE ( RANGE ---)             
+ DUP RANGE.REG !                        
+ 36 9  NUM.PLOP ;                       
+                                        
+                                        
+: ST.SQUASH ( STACK ADDR---)            
+ ( PUSHES DOWN FULL STACK)              
+ ( BOTTOM ITEM IS LOST)                 
+ DUP 1+ SWAP STACK.LEN@ 1- CMOVE ;      
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 ════════════════════════════════════════   SCREEN 154
 ( ERASE.STACK DRAW.MOV.ST ON.MOV.ST)    
                                         
@@ -1798,6 +3455,7 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
     DRAW.MOV.ST ;                       
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 155
 ( DRAW.OBJ.ST ON.OBJ.ST)                
                                         
@@ -1818,6 +3476,7 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
     OBJ.ST^ @ OBJ.ST( + C!              
  ( STORE NEW ITEM)                      
     DRAW.OBJ.ST ;                       
+                                        
                                         
                                         
                                         
@@ -1848,6 +3507,7 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
                                         
                                         
                                         
+                                        
 ════════════════════════════════════════   SCREEN 157
 ( NUM= NUM< OBJ= MOV= CLEAR.STACKS)     
                                         
@@ -1873,6 +3533,7 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
   OBJ.EMPTY@ OBJ.ST( C!                 
   NUM.EMPTY@ NUM.ST( C!                 
   DRAW.MOV.ST DRAW.OBJ.ST DRAW.NUM.ST ; 
+                                        
 ════════════════════════════════════════   SCREEN 158
  ( DROP.STACK PLUS MINUS)               
                                         
@@ -1898,3 +3559,30 @@ THEN FIRST SWAP CASE  1 OF " A1" ;;
   DUP NUM.EMPTY@ = NOT                  
   IF NUM0@ - 1- 8 +MOD NUM0@ + SWAP C!  
   DRAW.NUM.ST ELSE 2DROP THEN ;         
+                                        
+════════════════════════════════════════   SCREEN 159
+( STACKER <<<<<<<<)                     
+                                        
+: STACKER ( OPCODE ---)                 
+  ARG.BYTE C@ 64 MOD SWAP               
+  CASE                                  
+    NUMBER=@ OF NUM= ;;                 
+    NUMBER<@ OF NUM< ;;                 
+    OBJECT=@ OF OBJ= ;;                 
+    MOVE=@ OF MOV= ;;                   
+    ON.NUMBER@ OF ON.NUM.ST ;;          
+    ON.OBJECT@ OF ON.OBJ.ST ;;          
+    ON.MOVE@ OF ON.MOV.ST ;;            
+    DROP.STACK@ OF DROP.STACK ;;        
+    PLUS@ OF DROP PLUS ;;               
+    MINUS@ OF DROP MINUS ;;             
+  ENDCASE ;                             
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
