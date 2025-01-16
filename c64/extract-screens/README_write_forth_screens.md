@@ -8,7 +8,7 @@ To use the script, run the following command:
 
 ```bash
 python write_forth_screens.py <forth_filename> <d64_filename>
-```forth
+```
 
 - `<forth_filename>`: The path to the FORTH file containing the screens.
 - `<d64_filename>`: The path to the D64 file to be updated.
@@ -55,14 +55,13 @@ The FORTH source file should contain screens formatted as follows:
 
 ### Usage Example
 
-```
+```forth
 ( LINEWIDTH: 40 )
-
-( ----------- Screen 0/1 ----------- )
+( ----------- Screen 0/170 ----------- )
 : HELLO
   ." Hello, world!" CR ;
 
-( ----------- Screen 1/1 ----------- )
+( ----------- Screen 1/171 ----------- )
 : BYE
   ." Goodbye, world!" CR ;
 ```
