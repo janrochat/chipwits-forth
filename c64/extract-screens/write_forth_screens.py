@@ -23,6 +23,8 @@ def write_forth_screens(forth_filename, d64_filename):
         f.seek(0)
         f.write(updated_data)
 
+    return data
+
 def extract_linewidth(lines):
     """
     Extract the linewidth from the first comments in the FORTH file.
@@ -39,26 +41,22 @@ def parse_screens(lines):
     screens = {}
     screen_nr = None
     screen_data = []
-    
+
     for line in lines:
         if line.startswith("( ----------- Screen"):
-            # Save the previous screen data
-            if screen_nr is not None:
-                screens[screen_nr] = ''.join(screen_data)
             # Extract the screen number
-            screen_nr = int(line.split()[2].split('/')[0])
+            screen_nr = int(line.split()[3].split("/")[0])
             screen_data = []
-        elif line.startswith('(') or line.strip() == '':
-            # Skip comment lines and empty lines
+        elif line.startswith("(") and line.endswith(")"):
+            # Skip comment lines
             continue
         else:
-            # Add the line to the current screen data, padded to the linewidth
-            screen_data.append(line.rstrip().ljust(LINEWIDTH))
-    
-    # Save the last screen data
-    if screen_nr is not None:
-        screens[screen_nr] = ''.join(screen_data)
-    
+            # Strip the newline characters and pad the line to LINEWIDTH with spaces
+            screen_data.append(line.rstrip('\r\n').ljust(LINEWIDTH)[:LINEWIDTH])
+
+        if screen_nr is not None:
+            screens[screen_nr] = screen_data
+
     return screens
 
 def update_d64_data(data, screens):
@@ -68,6 +66,8 @@ def update_d64_data(data, screens):
     screen_size = 1024
     
     for screen_nr, screen_text in screens.items():
+        # Join the list into a single string
+        screen_text = ''.join(screen_text)
         # Calculate the offset for the screen in the D64 file
         offset = screen_nr * 0x400 if screen_nr < 89 else screen_nr * 0x400 + 0x300
         # Convert the screen text to bytes and pad to the screen size
