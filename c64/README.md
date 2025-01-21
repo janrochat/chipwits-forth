@@ -11,7 +11,7 @@ of the original author of ChipWits, Doug Sharp.
 
 # Build Instructions
 
-The Commodore 64 version can be built from source! See ![Build Instructions](buildtools/README.md) for
+The Commodore 64 version can be built from source! See [Build Instructions](buildtools/README.md) for
 step-by-step instructions.
 
 # Super Forth 64
