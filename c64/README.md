@@ -9,6 +9,11 @@ of the original author of ChipWits, Doug Sharp.
 
 ![Commodore 64 ChipWits Screenshot](docs/c64-chipwits.png)
 
+# Build Instructions
+
+The Commodore 64 version can be built from source! See [Build Instructions](buildtools/README.md) for
+step-by-step instructions.
+
 # Super Forth 64
 
 By analyzing the disks, it's possible to infer that the game was built using a variant of the Forth programming
@@ -117,11 +122,3 @@ In progress:
 # Readable FORTH Source
 The `forth/` directory contains extracts of the SUPER FORTH 64 source code, re-encoded so that
 they can be read by a modern computer.
-
-
-# Future Work
-
-Further work needs to be done:
-* catalog the latest version of the source code that is not corrupt
-* assemble an ASCII listing of the complete latest source
-* get the source for the full game to build and run
