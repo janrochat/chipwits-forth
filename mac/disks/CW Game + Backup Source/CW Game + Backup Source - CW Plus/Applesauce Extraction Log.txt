@@ -1,0 +1,68 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0.2
+www.applesaucefdc.com
+
+Timestamp: Mar 1, 2025 at 19:03
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh MFS
+
+== STATUS ======================================================================
+
+4 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+CW Plus
+
+CRTR TYPE NAME                          ALLOCS  LENGTH  MODIFIED     CREATED
+
+ERIK FNDR DeskTop                            4    2416  03 NOV 1989  23 JUL 1986
+MACS ZSYS System                            75   76068  20 JUL 1986  02 JUN 1986
+M4TH BLKS ChipWits                         196  200704  21 JUL 1986  22 MAY 1984
+M4TH APPL Backup K3.4D- w CW res            68   69011  17 JUN 1986  13 OCT 1984
+
+
+== FILE DETAILS ================================================================
+
+DeskTop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: 345169a5c9755e8a2fd46b38169b69a3
+
+
+   Allocs: 4        Block Qty: 8        File Size: 2416     
+Data Size: 0        Data Blks: 0        Rsrc Size: 2416     Rsrc Blks: 8        
+    Flags: $80         Finder: $4000       File #: 1         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+System
+Creator: 'MACS'  Type: 'ZSYS'              MD5: 00ba6883f86793dabad778347d6ff52f
+
+
+   Allocs: 75       Block Qty: 150      File Size: 76068    
+Data Size: 1024     Data Blks: 2        Rsrc Size: 75044    Rsrc Blks: 148      
+    Flags: $80         Finder: $3100       File #: 2         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+ChipWits
+Creator: 'M4TH'  Type: 'BLKS'              MD5: 5e6775ceda13e70ed4e241ee70b25156
+
+
+   Allocs: 196      Block Qty: 392      File Size: 200704   
+Data Size: 200704   Data Blks: 392      Rsrc Size: 0        Rsrc Blks: 0        
+    Flags: $80         Finder: $0100       File #: 6         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
+Backup K3.4D- w CW res
+Creator: 'M4TH'  Type: 'APPL'              MD5: 407e773f8daabc57103ce0c10a1da5cf
+
+
+   Allocs: 68       Block Qty: 136      File Size: 69011    
+Data Size: 0        Data Blks: 0        Rsrc Size: 69011    Rsrc Blks: 136      
+    Flags: $80         Finder: $2100       File #: 7         Folder #: 0        
+
+--------------------------------------------------------------------------------
+
