@@ -1,0 +1,42 @@
+DISK CONTENT EXTRACTION LOG
+Performed by Applesauce v2.0.2
+www.applesaucefdc.com
+
+Timestamp: Mar 1, 2025 at 19:14
+
+    Media: 3.5" Floppy Disk
+   Format: Macintosh HFS
+
+== STATUS ======================================================================
+
+2 files were detected on the disk.
+No issues were encountered with the extraction process.
+
+== CATALOG =====================================================================
+
+Backup #3
+
+CRTR TYPE NAME                             LENGTH  MODIFIED     CREATED
+
+IGSg BKPF BackupFile                       783562  27 JUL 1987  27 JUL 1987
+ERIK FNDR Desktop                             345  17 FEB 1986  17 FEB 1986
+
+
+== FILE DETAILS ================================================================
+
+BackupFile
+Creator: 'IGSg'  Type: 'BKPF'              MD5: f35ac64f5545852f2425533d50e80ebb
+
+     CNID: 17       Block Qty: 1531     File Size: 783562       Flags: $00      
+Data Size: 783562   Data Blks: 1531     Rsrc Size: 0        Rsrc Blks: 0        
+
+--------------------------------------------------------------------------------
+
+Desktop
+Creator: 'ERIK'  Type: 'FNDR'              MD5: 19539dc97cb32963655e7ef764fefa1f
+
+     CNID: 18       Block Qty: 13       File Size: 345          Flags: $00      
+Data Size: 0        Data Blks: 0        Rsrc Size: 345      Rsrc Blks: 13       
+
+--------------------------------------------------------------------------------
+
