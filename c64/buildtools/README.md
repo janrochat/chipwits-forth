@@ -50,7 +50,7 @@ Disk images are under c64/disks, except buildtools.d64.
    DR1
    64 ' C/L !
    1 LIST
-   EMPY-BUFFERS
+   EMPTY-BUFFERS
    1 LIST
    1 LOAD
    2 LOAD
@@ -109,3 +109,17 @@ This executes the main ChipWits program. The result also gets saved to buildtool
    ```
 
 For questions or suggestions, you can find more information on the ChipWits website or join the ChipWits Discord. For questions or suggestions, visit the ChipWits Discord (see <www.chipwits.com>).
+
+## Automated build with the console emulator
+
+The repo includes a console-based emulator and scripts that reproduce the manual steps
+above using stdin/stdout. From the repo root:
+
+```bash
+./scripts/build-chipwits-c64.sh
+./scripts/check-game-prg.sh
+```
+
+The build script loads `CWMIN` directly, issues the FORTH commands in sequence, swaps
+drive 9 images via `@HOST` commands, and stops after the `GAME` PRG is saved into
+`c64/buildtools/buildtools.d64`.

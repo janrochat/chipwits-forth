@@ -23,6 +23,11 @@ func NewDiskDrive(image *D64Image) *DiskDrive {
 	return &DiskDrive{Image: image, Channels: make(map[byte]*DiskChannel)}
 }
 
+func (d *DiskDrive) SwapImage(image *D64Image) {
+	d.Image = image
+	d.Channels = make(map[byte]*DiskChannel)
+}
+
 func (d *DiskDrive) OpenChannel(number byte, mode string) *DiskChannel {
 	ch := &DiskChannel{Number: number, Type: mode}
 	d.Channels[number] = ch
@@ -39,7 +44,9 @@ func (d *DiskDrive) Channel(number byte) (*DiskChannel, bool) {
 }
 
 func (d *DiskDrive) ExecuteCommand(command string) error {
-	parts := strings.Fields(command)
+	parts := strings.FieldsFunc(command, func(r rune) bool {
+		return r == ':' || r == ',' || r == ' ' || r == '\t' || r == '\r' || r == '\n'
+	})
 	if len(parts) == 0 {
 		return nil
 	}
