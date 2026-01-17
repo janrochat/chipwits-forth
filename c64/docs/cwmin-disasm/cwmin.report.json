@@ -1,0 +1,12 @@
+{
+  "prg_path": "/workspace/chipwits-forth/c64/docs/cwmin-disasm/CWMIN.prg",
+  "output_dir": "/workspace/chipwits-forth/c64/docs/cwmin-disasm",
+  "load_address": "0801",
+  "payload_size": 11161,
+  "entry_point": "0810",
+  "code_bytes": 2542,
+  "data_bytes": 8619,
+  "sha256_original": "987bba12cd4cb757f353c56eeba512173efe210f685ffcf88acb3b3246a5dc11",
+  "sha256_rebuilt": "987bba12cd4cb757f353c56eeba512173efe210f685ffcf88acb3b3246a5dc11",
+  "match": true
+}
