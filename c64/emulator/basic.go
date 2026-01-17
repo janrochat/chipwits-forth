@@ -32,6 +32,12 @@ func BasicSysEntry(data []byte) (uint16, bool) {
 			for j < lineEnd && unicode.IsSpace(rune(data[j])) {
 				j++
 			}
+			if j < lineEnd && data[j] == '(' {
+				j++
+				for j < lineEnd && unicode.IsSpace(rune(data[j])) {
+					j++
+				}
+			}
 			var addr uint16
 			var found bool
 			for j < lineEnd && data[j] >= '0' && data[j] <= '9' {
