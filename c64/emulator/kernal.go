@@ -21,13 +21,26 @@ const (
 	kernalLOAD   = 0xFFD5
 	kernalSAVE   = 0xFFD8
 	kernalGETIN  = 0xFFE4
+	kernalACPTR  = 0xFFA5
+	kernalCIOUT  = 0xFFA8
+	kernalUNTLK  = 0xFFAB
+	kernalREADST = 0xFFB7
+	kernalUNLSN  = 0xFFAE
+	kernalPLOT   = 0xFFF0
+	kernalIOINIT = 0xFF20
+	kernalLISTEN = 0xFFB1
+	kernalTALK   = 0xFFB4
+	kernalSECOND = 0xFF93
+	kernalTKSA   = 0xFF96
+	kernalSCNKEY = 0xFF9F
 )
 
 type Kernal struct {
-	mem    *Memory
-	Drives map[byte]*DiskDrive
-	stdin  *bufio.Reader
-	stdout io.Writer
+	mem       *Memory
+	Drives    map[byte]*DiskDrive
+	stdin     *bufio.Reader
+	stdout    io.Writer
+	inputChan chan byte
 
 	lfs struct {
 		logical   byte
@@ -37,9 +50,11 @@ type Kernal struct {
 	name struct {
 		value string
 	}
-	openFiles  map[byte]*OpenFile
-	currentIn  byte
-	currentOut byte
+	openFiles     map[byte]*OpenFile
+	currentIn     byte
+	currentOut    byte
+	haltAfterSave string
+	stopRequested bool
 }
 
 type OpenFile struct {
@@ -51,13 +66,24 @@ type OpenFile struct {
 }
 
 func NewKernal(mem *Memory, drives map[byte]*DiskDrive, stdin io.Reader, stdout io.Writer) *Kernal {
-	return &Kernal{
+	k := &Kernal{
 		mem:       mem,
 		Drives:    drives,
 		stdin:     bufio.NewReader(stdin),
 		stdout:    stdout,
 		openFiles: make(map[byte]*OpenFile),
+		inputChan: make(chan byte, 4096),
 	}
+	k.startInputReader()
+	return k
+}
+
+func (k *Kernal) SetHaltAfterSave(name string) {
+	k.haltAfterSave = strings.TrimSpace(name)
+}
+
+func (k *Kernal) StopRequested() bool {
+	return k.stopRequested
 }
 
 func (k *Kernal) HandleJSR(cpu *CPU, addr uint16) bool {
@@ -97,6 +123,42 @@ func (k *Kernal) HandleJSR(cpu *CPU, addr uint16) bool {
 		return true
 	case kernalGETIN:
 		k.GetIn(cpu)
+		return true
+	case kernalACPTR:
+		k.AccPtr(cpu)
+		return true
+	case kernalCIOUT:
+		k.CiOut(cpu)
+		return true
+	case kernalUNTLK:
+		k.UnTalk(cpu)
+		return true
+	case kernalREADST:
+		k.ReadST(cpu)
+		return true
+	case kernalUNLSN:
+		k.Unlisten(cpu)
+		return true
+	case kernalPLOT:
+		k.Plot(cpu)
+		return true
+	case kernalIOINIT:
+		k.Noop(cpu)
+		return true
+	case kernalLISTEN:
+		k.Listen(cpu)
+		return true
+	case kernalTALK:
+		k.Talk(cpu)
+		return true
+	case kernalSECOND:
+		k.Second(cpu)
+		return true
+	case kernalTKSA:
+		k.Tksa(cpu)
+		return true
+	case kernalSCNKEY:
+		k.ScanKey(cpu)
 		return true
 	default:
 		return false
@@ -173,7 +235,7 @@ func (k *Kernal) ClrChn(cpu *CPU) {
 func (k *Kernal) ChrIn(cpu *CPU) {
 	file, ok := k.openFiles[k.currentIn]
 	if !ok || file.Device == 0 {
-		b, err := k.stdin.ReadByte()
+		b, err := k.readInputByte()
 		if err != nil {
 			cpu.A = 0
 			cpu.SetCarry()
@@ -231,13 +293,70 @@ func (k *Kernal) ChrOut(cpu *CPU) {
 }
 
 func (k *Kernal) GetIn(cpu *CPU) {
-	b, err := k.stdin.ReadByte()
+	b, ok, err := k.tryReadInputByte()
 	if err != nil {
 		cpu.A = 0
 		cpu.SetCarry()
 		return
 	}
+	if !ok {
+		cpu.A = 0
+		cpu.ClearCarry()
+		return
+	}
 	cpu.A = b
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) ReadST(cpu *CPU) {
+	cpu.A = 0
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Unlisten(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Plot(cpu *CPU) {
+	cpu.X = 0
+	cpu.Y = 0
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Noop(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) AccPtr(cpu *CPU) {
+	cpu.A = 0
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) CiOut(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) UnTalk(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Listen(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Talk(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Second(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) Tksa(cpu *CPU) {
+	cpu.ClearCarry()
+}
+
+func (k *Kernal) ScanKey(cpu *CPU) {
 	cpu.ClearCarry()
 }
 
@@ -289,9 +408,125 @@ func (k *Kernal) Save(cpu *CPU) {
 		return
 	}
 	_ = drive.Image.Save()
+	if k.haltAfterSave != "" && strings.EqualFold(strings.TrimSpace(name), k.haltAfterSave) {
+		k.stopRequested = true
+	}
 	cpu.ClearCarry()
 }
 
 func (k *Kernal) DebugState() string {
 	return fmt.Sprintf("LFS=%d/%d/%d NAME=%q", k.lfs.logical, k.lfs.device, k.lfs.secondary, k.name.value)
+}
+
+func (k *Kernal) readInputByte() (byte, error) {
+	b, ok := <-k.inputChan
+	if !ok {
+		return 0, io.EOF
+	}
+	if b == '\n' {
+		return '\r', nil
+	}
+	return b, nil
+}
+
+func (k *Kernal) tryReadInputByte() (byte, bool, error) {
+	select {
+	case b, ok := <-k.inputChan:
+		if !ok {
+			return 0, false, io.EOF
+		}
+		if b == '\n' {
+			return '\r', true, nil
+		}
+		return b, true, nil
+	default:
+		return 0, false, nil
+	}
+}
+
+func (k *Kernal) startInputReader() {
+	go func() {
+		for {
+			b, err := k.stdin.ReadByte()
+			if err != nil {
+				close(k.inputChan)
+				return
+			}
+			if b != '@' {
+				k.inputChan <- b
+				continue
+			}
+			line, err := k.stdin.ReadString('\n')
+			if err != nil && err != io.EOF {
+				close(k.inputChan)
+				return
+			}
+			full := strings.TrimRight("@"+line, "\r\n")
+			if strings.HasPrefix(strings.ToUpper(full), "@HOST ") {
+				k.handleHostCommand(strings.TrimSpace(full[len("@HOST "):]))
+				if err == io.EOF {
+					close(k.inputChan)
+					return
+				}
+				continue
+			}
+			k.enqueueInput([]byte("@" + line))
+			if err == io.EOF {
+				close(k.inputChan)
+				return
+			}
+		}
+	}()
+}
+
+func (k *Kernal) handleHostCommand(command string) {
+	fields := strings.Fields(command)
+	if len(fields) == 0 {
+		return
+	}
+	upper := strings.ToUpper(fields[0])
+	switch {
+	case upper == "HALT":
+		k.stopRequested = true
+		return
+	case upper == "SWAP":
+		if len(fields) < 3 {
+			return
+		}
+		device := parseInt(fields[1])
+		path := strings.Join(fields[2:], " ")
+		k.swapDrive(byte(device), path)
+		return
+	case strings.HasPrefix(upper, "SWAP"):
+		deviceStr := strings.TrimPrefix(upper, "SWAP")
+		if deviceStr == "" || len(fields) < 2 {
+			return
+		}
+		device := parseInt(deviceStr)
+		path := strings.Join(fields[1:], " ")
+		k.swapDrive(byte(device), path)
+		return
+	}
+}
+
+func (k *Kernal) swapDrive(device byte, path string) {
+	if path == "" {
+		return
+	}
+	image, err := LoadD64(path)
+	if err != nil {
+		return
+	}
+	drive, ok := k.Drives[device]
+	if !ok {
+		k.Drives[device] = NewDiskDrive(image)
+		return
+	}
+	drive.SwapImage(image)
+}
+
+func (k *Kernal) enqueueInput(data []byte) {
+	for _, b := range data {
+		k.inputChan <- b
+	}
 }

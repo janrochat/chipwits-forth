@@ -177,7 +177,17 @@ func (d *D64Image) findDirEntry(name string) ([]byte, error) {
 		nextTrack := int(buf[0])
 		nextSector := int(buf[1])
 		for i := 0; i < 8; i++ {
-			entry := buf[2+i*32 : 2+(i+1)*32]
+			entryOffset := 2 + i*32
+			if entryOffset >= len(buf) {
+				break
+			}
+			entryEnd := entryOffset + 32
+			entry := make([]byte, 32)
+			if entryEnd > len(buf) {
+				copy(entry, buf[entryOffset:])
+			} else {
+				copy(entry, buf[entryOffset:entryEnd])
+			}
 			if entry[0] == 0x00 {
 				continue
 			}
@@ -204,6 +214,9 @@ func (d *D64Image) writeDirEntry(name string, startTrack, startSector int) error
 		}
 		for i := 0; i < 8; i++ {
 			entryOffset := 2 + i*32
+			if entryOffset+32 > len(buf) {
+				continue
+			}
 			if buf[entryOffset] == 0x00 {
 				buf[entryOffset] = 0x82
 				buf[entryOffset+1] = byte(startTrack)
@@ -244,7 +257,16 @@ func (d *D64Image) deleteFile(name string) error {
 		changed := false
 		for i := 0; i < 8; i++ {
 			entryOffset := 2 + i*32
-			entry := buf[entryOffset : entryOffset+32]
+			if entryOffset >= len(buf) {
+				break
+			}
+			entryEnd := entryOffset + 32
+			entry := make([]byte, 32)
+			if entryEnd > len(buf) {
+				copy(entry, buf[entryOffset:])
+			} else {
+				copy(entry, buf[entryOffset:entryEnd])
+			}
 			if entry[0] == 0x00 {
 				continue
 			}
@@ -255,7 +277,7 @@ func (d *D64Image) deleteFile(name string) error {
 				if err := d.freeFileChain(startTrack, startSector); err != nil {
 					return err
 				}
-				entry[0] = 0x00
+				buf[entryOffset] = 0x00
 				changed = true
 			}
 		}

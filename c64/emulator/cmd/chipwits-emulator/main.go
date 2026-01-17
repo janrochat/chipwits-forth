@@ -17,12 +17,14 @@ func main() {
 	var loadName string
 	var device uint
 	var maxInstructions uint64
+	var haltAfterSave string
 	pflag.StringVar(&drive8Path, "drive8", "", "path to drive 8 .d64 image")
 	pflag.StringVar(&drive9Path, "drive9", "", "path to drive 9 .d64 image")
 	pflag.StringVar(&prgPath, "prg", "", "path to PRG to load directly")
 	pflag.StringVar(&loadName, "load", "", "filename to load from disk image")
 	pflag.UintVar(&device, "device", 8, "device number for load/save operations")
 	pflag.Uint64Var(&maxInstructions, "max-instructions", 5_000_000, "maximum instructions before stopping")
+	pflag.StringVar(&haltAfterSave, "halt-after-save", "", "stop emulator after saving a file with this name")
 	pflag.Parse()
 
 	mem := &emulator.Memory{}
@@ -43,6 +45,9 @@ func main() {
 	}
 
 	kernal := emulator.NewKernal(mem, drives, os.Stdin, os.Stdout)
+	if haltAfterSave != "" {
+		kernal.SetHaltAfterSave(haltAfterSave)
+	}
 	cpu := emulator.NewCPU(mem, kernal)
 
 	entryPoint := uint16(0)
@@ -54,8 +59,12 @@ func main() {
 		if len(data) < 2 {
 			log.Fatalf("prg file too small")
 		}
-		entryPoint = uint16(data[0]) | (uint16(data[1]) << 8)
-		copy(mem.Data[entryPoint:], data[2:])
+		loadAddr := uint16(data[0]) | (uint16(data[1]) << 8)
+		entryPoint = loadAddr
+		if sysAddr, ok := emulator.BasicSysEntry(data); ok {
+			entryPoint = sysAddr
+		}
+		copy(mem.Data[loadAddr:], data[2:])
 	} else if loadName != "" {
 		loadPtr := uint16(0x0200)
 		copy(mem.Data[loadPtr:], []byte(loadName))
@@ -74,6 +83,9 @@ func main() {
 				log.Fatalf("load file: %v", err)
 			}
 			entryPoint = uint16(data[0]) | (uint16(data[1]) << 8)
+			if sysAddr, ok := emulator.BasicSysEntry(data); ok {
+				entryPoint = sysAddr
+			}
 		}
 	}
 
@@ -86,6 +98,10 @@ func main() {
 	for i := uint64(0); i < maxInstructions; i++ {
 		if err := cpu.Step(); err != nil {
 			log.Fatalf("cpu error: %v", err)
+		}
+		if kernal.StopRequested() {
+			log.Printf("stopped after saving %s", haltAfterSave)
+			return
 		}
 	}
 	log.Printf("stopped after %d instructions", maxInstructions)
