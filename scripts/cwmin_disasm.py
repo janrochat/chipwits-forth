@@ -416,7 +416,20 @@ def emit_data_block(data: bytes, start_addr: int) -> list[str]:
 
 def disassemble_to_lines(payload: bytes, base_addr: int, code_map: dict[int, dict]) -> list[str]:
     labels = find_labels(code_map, base_addr, len(payload))
-    lines = [f"; Disassembly of CWMIN PRG", f"; Load address: {format_hex(base_addr, 4)}", ""]
+    lines = [
+        "; Disassembly of CWMIN PRG",
+        f"; Load address: {format_hex(base_addr, 4)}",
+        ";",
+        "; FORTH dictionary layout notes (C64 Super-Forth):",
+        "; - NFA points at the count/flags byte (length in low 5 bits).",
+        "; - LFA is the 16-bit link field stored 2 bytes before NFA.",
+        "; - CFA is the aligned address after the name field (16-bit cell).",
+        "; - PFA immediately follows CFA (CFA + 2).",
+        "; - Threaded code stores CFA code pointers (CFA @ values).",
+        ";   The <DECOM> decompiler uses these relationships to print words,",
+        ";   literals (<LIT>), branches, and string literals (<.\">/<ABORT\">).",
+        "",
+    ]
     lines.append(f"    .org {format_hex(base_addr, 4)}")
 
     addr = base_addr

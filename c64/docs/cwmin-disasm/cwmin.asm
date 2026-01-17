@@ -1,11 +1,14 @@
 ; Disassembly of CWMIN PRG
 ; Load address: $0801
 ;
-; Notes from the Super-Forth source screens (c64/forth/Forth Source Screens.forth):
-; - Zero-page register assignments: W=$81, IP=$FB, N=$87, XSAVE=$83.
-; - Nucleus entry points: SETUPN=$0871, POPTWO=$0882, POP=$0884,
-;   PUSH=$0889, PUT=$088B, NEXT=$0890.
-;   Labels below alias the disassembly addresses for long-term clarity.
+; FORTH dictionary layout notes (C64 Super-Forth):
+; - NFA points at the count/flags byte (length in low 5 bits).
+; - LFA is the 16-bit link field stored 2 bytes before NFA.
+; - CFA is the aligned address after the name field (16-bit cell).
+; - PFA immediately follows CFA (CFA + 2).
+; - Threaded code stores CFA code pointers (CFA @ values).
+;   The <DECOM> decompiler uses these relationships to print words,
+;   literals (<LIT>), branches, and string literals (<.">/<ABORT">).
 
     .org $0801
     .byte $0D, $08, $0A, $00, $9E, $28, $32, $30, $36, $34, $29, $00, $00, $00, $00
@@ -17,7 +20,6 @@
     .text " 17 04"
     .byte $0D, $5C, $49, $30, $0D, $5C, $42, $2D, $50, $20, $30, $39, $20, $30, $0D, $5C
     .byte $01, $23, $00, $FF, $FF, $00, $00, $FF
-SETUPN:
 L0871:
     ASL A
     STA $86
@@ -30,25 +32,20 @@ L0874:
     BNE L0874
     LDY #$00
     RTS
-POPTWO:
 L0882:
     INX
     INX
-POP:
 L0884:
     INX
     INX
     JMP L0890
-PUSH:
 L0889:
     DEX
     DEX
-PUT:
 L088B:
     STA $01,X
     PLA
     STA $00,X
-NEXT:
 L0890:
     LDY #$01
 L0892:
